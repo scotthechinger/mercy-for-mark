@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: mercy-for-mark
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      # Set both of these in the Render dashboard. Do not commit them.
+      - key: SITE_USER
+        sync: false
+      - key: SITE_PASS
+        sync: false

@@ -3,3 +3,5 @@ __pycache__/
 *.pyc
 final.json
 terms.json
+node_modules/
+_to_delete/
