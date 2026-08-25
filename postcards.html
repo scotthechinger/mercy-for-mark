@@ -1,0 +1,888 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Postcard Project | Mercy for Mark</title>
+<meta name="description" content="People of faith across Alabama are writing to the Governor by hand. Every card that comes back joins the wall.">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="The Postcard Project | Mercy for Mark">
+<meta property="og:description" content="People of faith across Alabama are writing to the Governor by hand. Every card that comes back joins the wall.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head><body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav"><div class="wrap">
+  <a class="wordmark" href="index.html">Mercy for <s>Mark</s></a>
+  <button class="navtoggle" aria-expanded="false" aria-controls="navlinks">Menu</button>
+  <nav class="navlinks" id="navlinks">
+    <a href="mark.html">Meet Mark</a>
+    <a href="officers.html">The Officers</a>
+    <a href="why-clemency.html">Why Clemency</a>
+    <a href="faq.html">FAQ</a>
+    <a class="cta" href="help.html">Take action</a>
+  </nav>
+</div></header>
+<main id="main">
+
+<style>
+.pc-controls{position:sticky;top:66px;z-index:40;background:var(--paper);
+  border-bottom:1px solid var(--rule);padding:14px 0}
+.pc-controls .wrap{display:flex;gap:16px;align-items:center;flex-wrap:wrap;
+  justify-content:space-between}
+.pc-hint{font-size:13.5px;color:var(--ink-3)}
+
+.tapestry{columns:4;column-gap:20px;margin-top:34px}
+.pc{break-inside:avoid;margin:0 0 20px;perspective:1400px;background:none;
+  border:0;padding:0;font:inherit;cursor:pointer;display:block;width:100%}
+.pc:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.pc-in{position:relative;transform-style:preserve-3d;
+  transition:transform .62s cubic-bezier(.2,.7,.2,1)}
+.pc:hover .pc-in,.tapestry.backs .pc-in,.pc.flipped .pc-in{transform:rotateY(180deg)}
+.tapestry.backs .pc:hover .pc-in{transform:rotateY(360deg)}
+.pc-face{backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  border:1px solid var(--rule);background:#fff;
+  box-shadow:0 1px 2px rgba(22,21,15,.06),0 8px 24px rgba(22,21,15,.07)}
+.pc-front img{width:100%;display:block}
+.pc-back{position:absolute;inset:0;transform:rotateY(180deg);overflow:hidden}
+
+/* the printed reverse of the card */
+.bk{height:100%;display:flex;flex-direction:column;background:#FDFCF9;
+  padding:7% 7% 5%;font-family:var(--serif);color:#2A2820;
+  container-type:inline-size}
+.bk-prompt{font-size:5.6cqw;line-height:1.32;margin:0 0 4%;color:#3A372E}
+.bk-cols{display:flex;gap:5%;flex:1;border-top:1px solid #DED8CB;padding-top:4%}
+.bk-lines{flex:1.15;display:flex;flex-direction:column;justify-content:flex-start;
+  gap:9%;padding-top:3%}
+.bk-lines i{display:block;border-bottom:1px solid #E6E0D3;height:1px}
+.bk-addr{flex:1;border-left:1px solid #DED8CB;padding-left:5%;position:relative;
+  display:flex;flex-direction:column;justify-content:flex-end;gap:6%}
+.bk-stamp{position:absolute;top:0;right:0;width:34%;aspect-ratio:.82;
+  border:1px dashed #CFC7B6;border-radius:2px}
+.bk-addr b{font-family:var(--sans);font-size:3.6cqw;letter-spacing:.1em;
+  text-transform:uppercase;color:#8A857A;font-weight:700;display:block}
+.bk-addr span{font-size:4.6cqw;line-height:1.4;display:block;color:#3A372E}
+.bk-foot{font-family:var(--sans);font-size:3.1cqw;line-height:1.45;color:#8A857A;
+  border-top:1px solid #EDE7DA;margin-top:4%;padding-top:3%}
+
+dialog{border:0;padding:0;max-width:760px;width:calc(100% - 34px);border-radius:4px;
+  background:transparent}
+dialog::backdrop{background:rgba(22,21,15,.72)}
+.dg{perspective:1600px}
+.dg-in{position:relative;transform-style:preserve-3d;
+  transition:transform .62s cubic-bezier(.2,.7,.2,1)}
+.dg.flipped .dg-in{transform:rotateY(180deg)}
+.dg-face{backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  background:#fff;border-radius:3px;overflow:hidden;
+  box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.dg-front img{width:100%;display:block}
+.dg-back{position:absolute;inset:0;transform:rotateY(180deg)}
+.dg-bar{display:flex;justify-content:space-between;align-items:center;gap:14px;
+  margin-top:18px;color:#EFEBE2}
+.dg-bar p{margin:0;font-size:14px;color:#CFC9BC}
+.dg-bar button{font:inherit;font-size:14.5px;font-weight:600;padding:10px 18px;
+  border-radius:2px;cursor:pointer;background:var(--accent);color:#fff;border:0}
+.dg-bar .x{background:none;border:1px solid rgba(255,255,255,.4);color:#fff}
+@media(max-width:1100px){.tapestry{columns:3}}
+@media(max-width:800px){.tapestry{columns:2}}
+@media(max-width:520px){.tapestry{columns:1}}
+</style>
+
+<section class="hero" style="padding:56px 0 26px"><div class="wrap"
+  style="grid-template-columns:1fr">
+  <div>
+    <p class="eyebrow">The postcard project</p>
+    <h1 style="max-width:17ch">One card, one question, one Governor.</h1>
+    <p class="serif-lede measure" style="margin-bottom:16px">&ldquo;If you were to speak to the Governor, why would you say Mark Jenkins deserves clemency?&rdquo;</p>
+    <p class="lede measure">Across Alabama, people of faith are answering that
+    question in their own handwriting and mailing it to Montgomery. Every card
+    that comes back is photographed and joins this wall.</p>
+    <div class="btnrow">
+      <a class="btn" href="mailto:teammarkjenkins@gmail.com?subject=Postcards%20for%20Mark">Request cards for your congregation</a>
+    </div>
+  </div>
+</div></section>
+
+<div class="pc-controls"><div class="wrap">
+  <div class="views" role="tablist">
+    <button class="on" data-side="front">Picture side</button>
+    <button data-side="back">Written side</button>
+  </div>
+  <p class="pc-hint">36 cards &middot; hover any card to turn it over,
+  or select one to open it</p>
+</div></div>
+
+<section style="padding-top:0"><div class="wrap">
+  <div class="tapestry" id="tap"><button class="pc" data-i="1" aria-label="Alabama State Map postcard, select to enlarge"><div class="pc-in" style="aspect-ratio:820/1088"><div class="pc-face pc-front"><img src="img/pc/card-01.jpg" alt="Alabama State Map" loading="lazy"></div><div class="pc-face pc-back"><div class="bk">
+  <p class="bk-prompt">If you were to speak to the Governor, why would you say Mark Jenkins deserves clemency?</p>
+  <div class="bk-cols">
+    <div class="bk-lines"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="bk-addr">
+      <span class="bk-stamp"></span>
+      <b>Mail to</b>
+      <span>Mercy for Mark<br>[Alabama address]</span>
+    </div>
+  </div>
+  <p class="bk-foot">Cards may be shown publicly, in print or online, as part of
+  Mark's clemency campaign. Signing your name is optional.</p>
+</div></div></div></button><button class="pc" data-i="2" aria-label="Alabama Hyper-Realistic State postcard, select to enlarge"><div class="pc-in" style="aspect-ratio:826/1092"><div class="pc-face pc-front"><img src="img/pc/card-02.jpg" alt="Alabama Hyper-Realistic State" loading="lazy"></div><div class="pc-face pc-back"><div class="bk">
+  <p class="bk-prompt">If you were to speak to the Governor, why would you say Mark Jenkins deserves clemency?</p>
+  <div class="bk-cols">
+    <div class="bk-lines"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="bk-addr">
+      <span class="bk-stamp"></span>
+      <b>Mail to</b>
+      <span>Mercy for Mark<br>[Alabama address]</span>
+    </div>
+  </div>
+  <p class="bk-foot">Cards may be shown publicly, in print or online, as part of
+  Mark's clemency campaign. Signing your name is optional.</p>
+</div></div></div></button><button class="pc" data-i="3" aria-label="Alabama Patriotic Spirit Vintage postcard, select to enlarge"><div class="pc-in" style="aspect-ratio:824/1084"><div class="pc-face pc-front"><img src="img/pc/card-03.jpg" alt="Alabama Patriotic Spirit Vintage" loading="lazy"></div><div class="pc-face pc-back"><div class="bk">
+  <p class="bk-prompt">If you were to speak to the Governor, why would you say Mark Jenkins deserves clemency?</p>
+  <div class="bk-cols">
+    <div class="bk-lines"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="bk-addr">
+      <span class="bk-stamp"></span>
+      <b>Mail to</b>
+      <span>Mercy for Mark<br>[Alabama address]</span>
+    </div>
+  </div>
+  <p class="bk-foot">Cards may be shown publicly, in print or online, as part of
+  Mark's clemency campaign. Signing your name is optional.</p>
+</div></div></div></button><button class="pc" data-i="4" aria-label="Greetings from Birmingham postcard, select to enlarge"><div class="pc-in" style="aspect-ratio:1084/824"><div class="pc-face pc-front"><img src="img/pc/card-04.jpg" alt="Greetings from Birmingham" loading="lazy"></div><div class="pc-face pc-back"><div class="bk">
+  <p class="bk-prompt">If you were to speak to the Governor, why would you say Mark Jenkins deserves clemency?</p>
+  <div class="bk-cols">
+    <div class="bk-lines"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="bk-addr">
+      <span class="bk-stamp"></span>
+      <b>Mail to</b>
+      <span>Mercy for Mark<br>[Alabama address]</span>
+    </div>
+  </div>
+  <p class="bk-foot">Cards may be shown publicly, in print or online, as part of
+  Mark's clemency campaign. Signing your name is optional.</p>
+</div></div></div></button><button class="pc" data-i="5" aria-label="Alabama Sailboat Vintage Travel postcard, select to enlarge"><div class="pc-in" style="aspect-ratio:820/1082"><div class="pc-face pc-front"><img src="img/pc/card-05.jpg" alt="Alabama Sailboat Vintage Travel" loading="lazy"></div><div class="pc-face pc-back"><div class="bk">
+  <p class="bk-prompt">If you were to speak to the Governor, why would you say Mark Jenkins deserves clemency?</p>
+  <div class="bk-cols">
+    <div class="bk-lines"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="bk-addr">
+      <span class="bk-stamp"></span>
+      <b>Mail to</b>
+      <span>Mercy for Mark<br>[Alabama address]</span>
+    </div>
+  </div>
+  <p class="bk-foot">Cards may be shown publicly, in print or online, as part of
+  Mark's clemency campaign. Signing your name is optional.</p>
+</div></div></div></button><button class="pc" data-i="6" aria-label="Dauphin Island postcard, select to enlarge"><div class="pc-in" style="aspect-ratio:1088/822"><div class="pc-face pc-front"><img src="img/pc/card-06.jpg" alt="Dauphin Island" loading="lazy"></div><div class="pc-face pc-back"><div class="bk">
+  <p class="bk-prompt">If you were to speak to the Governor, why would you say Mark Jenkins deserves clemency?</p>
+  <div class="bk-cols">
+    <div class="bk-lines"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="bk-addr">
+      <span class="bk-stamp"></span>
+      <b>Mail to</b>
+      <span>Mercy for Mark<br>[Alabama address]</span>
+    </div>
+  </div>
+  <p class="bk-foot">Cards may be shown publicly, in print or online, as part of
+  Mark's clemency campaign. Signing your name is optional.</p>
+</div></div></div></button><button class="pc" data-i="7" aria-label="Gulf Shores Beach postcard, select to enlarge"><div class="pc-in" style="aspect-ratio:820/1084"><div class="pc-face pc-front"><img src="img/pc/card-07.jpg" alt="Gulf Shores Beach" loading="lazy"></div><div class="pc-face pc-back"><div class="bk">
+  <p class="bk-prompt">If you were to speak to the Governor, why would you say Mark Jenkins deserves clemency?</p>
+  <div class="bk-cols">
+    <div class="bk-lines"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="bk-addr">
+      <span class="bk-stamp"></span>
+      <b>Mail to</b>
+      <span>Mercy for Mark<br>[Alabama address]</span>
+    </div>
+  </div>
+  <p class="bk-foot">Cards may be shown publicly, in print or online, as part of
+  Mark's clemency campaign. Signing your name is optional.</p>
+</div></div></div></button><button class="pc" data-i="8" aria-label="Greetings from Mobile Vintage postcard, select to enlarge"><div class="pc-in" style="aspect-ratio:1090/828"><div class="pc-face pc-front"><img src="img/pc/card-08.jpg" alt="Greetings from Mobile Vintage" loading="lazy"></div><div class="pc-face pc-back"><div class="bk">
+  <p class="bk-prompt">If you were to speak to the Governor, why would you say Mark Jenkins deserves clemency?</p>
+  <div class="bk-cols">
+    <div class="bk-lines"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="bk-addr">
+      <span class="bk-stamp"></span>
+      <b>Mail to</b>
+      <span>Mercy for Mark<br>[Alabama address]</span>
+    </div>
+  </div>
+  <p class="bk-foot">Cards may be shown publicly, in print or online, as part of
+  Mark's clemency campaign. Signing your name is optional.</p>
+</div></div></div></button><button class="pc" data-i="9" aria-label="Birmingham Travel Art Vintage postcard, select to enlarge"><div class="pc-in" style="aspect-ratio:820/1082"><div class="pc-face pc-front"><img src="img/pc/card-09.jpg" alt="Birmingham Travel Art Vintage" loading="lazy"></div><div class="pc-face pc-back"><div class="bk">
+  <p class="bk-prompt">If you were to speak to the Governor, why would you say Mark Jenkins deserves clemency?</p>
+  <div class="bk-cols">
+    <div class="bk-lines"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="bk-addr">
+      <span class="bk-stamp"></span>
+      <b>Mail to</b>
+      <span>Mercy for Mark<br>[Alabama address]</span>
+    </div>
+  </div>
+  <p class="bk-foot">Cards may be shown publicly, in print or online, as part of
+  Mark's clemency campaign. Signing your name is optional.</p>
+</div></div></div></button><button class="pc" data-i="10" aria-label="Travel Alabama Cotton State postcard, select to enlarge"><div class="pc-in" style="aspect-ratio:828/1092"><div class="pc-face pc-front"><img src="img/pc/card-10.jpg" alt="Travel Alabama Cotton State" loading="lazy"></div><div class="pc-face pc-back"><div class="bk">
+  <p class="bk-prompt">If you were to speak to the Governor, why would you say Mark Jenkins deserves clemency?</p>
+  <div class="bk-cols">
+    <div class="bk-lines"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="bk-addr">
+      <span class="bk-stamp"></span>
+      <b>Mail to</b>
+      <span>Mercy for Mark<br>[Alabama address]</span>
+    </div>
+  </div>
+  <p class="bk-foot">Cards may be shown publicly, in print or online, as part of
+  Mark's clemency campaign. Signing your name is optional.</p>
+</div></div></div></button><button class="pc" data-i="11" aria-label="Vintage Tuscaloosa postcard, select to enlarge"><div class="pc-in" style="aspect-ratio:800/1118"><div class="pc-face pc-front"><img src="img/pc/card-11.jpg" alt="Vintage Tuscaloosa" loading="lazy"></div><div class="pc-face pc-back"><div class="bk">
+  <p class="bk-prompt">If you were to speak to the Governor, why would you say Mark Jenkins deserves clemency?</p>
+  <div class="bk-cols">
+    <div class="bk-lines"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="bk-addr">
+      <span class="bk-stamp"></span>
+      <b>Mail to</b>
+      <span>Mercy for Mark<br>[Alabama address]</span>
+    </div>
+  </div>
+  <p class="bk-foot">Cards may be shown publicly, in print or online, as part of
+  Mark's clemency campaign. Signing your name is optional.</p>
+</div></div></div></button><button class="pc" data-i="12" aria-label="Gulf Shores Alabama postcard, select to enlarge"><div class="pc-in" style="aspect-ratio:1080/822"><div class="pc-face pc-front"><img src="img/pc/card-12.jpg" alt="Gulf Shores Alabama" loading="lazy"></div><div class="pc-face pc-back"><div class="bk">
+  <p class="bk-prompt">If you were to speak to the Governor, why would you say Mark Jenkins deserves clemency?</p>
+  <div class="bk-cols">
+    <div class="bk-lines"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="bk-addr">
+      <span class="bk-stamp"></span>
+      <b>Mail to</b>
+      <span>Mercy for Mark<br>[Alabama address]</span>
+    </div>
+  </div>
+  <p class="bk-foot">Cards may be shown publicly, in print or online, as part of
+  Mark's clemency campaign. Signing your name is optional.</p>
+</div></div></div></button><button class="pc" data-i="13" aria-label="Vintage Mobile postcard, select to enlarge"><div class="pc-in" style="aspect-ratio:808/1128"><div class="pc-face pc-front"><img src="img/pc/card-13.jpg" alt="Vintage Mobile" loading="lazy"></div><div class="pc-face pc-back"><div class="bk">
+  <p class="bk-prompt">If you were to speak to the Governor, why would you say Mark Jenkins deserves clemency?</p>
+  <div class="bk-cols">
+    <div class="bk-lines"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="bk-addr">
+      <span class="bk-stamp"></span>
+      <b>Mail to</b>
+      <span>Mercy for Mark<br>[Alabama address]</span>
+    </div>
+  </div>
+  <p class="bk-foot">Cards may be shown publicly, in print or online, as part of
+  Mark's clemency campaign. Signing your name is optional.</p>
+</div></div></div></button><button class="pc" data-i="14" aria-label="Birmingham Skyline postcard, select to enlarge"><div class="pc-in" style="aspect-ratio:1086/828"><div class="pc-face pc-front"><img src="img/pc/card-14.jpg" alt="Birmingham Skyline" loading="lazy"></div><div class="pc-face pc-back"><div class="bk">
+  <p class="bk-prompt">If you were to speak to the Governor, why would you say Mark Jenkins deserves clemency?</p>
+  <div class="bk-cols">
+    <div class="bk-lines"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="bk-addr">
+      <span class="bk-stamp"></span>
+      <b>Mail to</b>
+      <span>Mercy for Mark<br>[Alabama address]</span>
+    </div>
+  </div>
+  <p class="bk-foot">Cards may be shown publicly, in print or online, as part of
+  Mark's clemency campaign. Signing your name is optional.</p>
+</div></div></div></button><button class="pc" data-i="15" aria-label="Alabama State Shaped Watercolor postcard, select to enlarge"><div class="pc-in" style="aspect-ratio:826/1090"><div class="pc-face pc-front"><img src="img/pc/card-15.jpg" alt="Alabama State Shaped Watercolor" loading="lazy"></div><div class="pc-face pc-back"><div class="bk">
+  <p class="bk-prompt">If you were to speak to the Governor, why would you say Mark Jenkins deserves clemency?</p>
+  <div class="bk-cols">
+    <div class="bk-lines"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="bk-addr">
+      <span class="bk-stamp"></span>
+      <b>Mail to</b>
+      <span>Mercy for Mark<br>[Alabama address]</span>
+    </div>
+  </div>
+  <p class="bk-foot">Cards may be shown publicly, in print or online, as part of
+  Mark's clemency campaign. Signing your name is optional.</p>
+</div></div></div></button><button class="pc" data-i="16" aria-label="Alabama Heart of Dixie postcard, select to enlarge"><div class="pc-in" style="aspect-ratio:698/986"><div class="pc-face pc-front"><img src="img/pc/card-16.jpg" alt="Alabama Heart of Dixie" loading="lazy"></div><div class="pc-face pc-back"><div class="bk">
+  <p class="bk-prompt">If you were to speak to the Governor, why would you say Mark Jenkins deserves clemency?</p>
+  <div class="bk-cols">
+    <div class="bk-lines"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="bk-addr">
+      <span class="bk-stamp"></span>
+      <b>Mail to</b>
+      <span>Mercy for Mark<br>[Alabama address]</span>
+    </div>
+  </div>
+  <p class="bk-foot">Cards may be shown publicly, in print or online, as part of
+  Mark's clemency campaign. Signing your name is optional.</p>
+</div></div></div></button><button class="pc" data-i="17" aria-label="Greetings From Alabama Vintage postcard, select to enlarge"><div class="pc-in" style="aspect-ratio:1084/818"><div class="pc-face pc-front"><img src="img/pc/card-17.jpg" alt="Greetings From Alabama Vintage" loading="lazy"></div><div class="pc-face pc-back"><div class="bk">
+  <p class="bk-prompt">If you were to speak to the Governor, why would you say Mark Jenkins deserves clemency?</p>
+  <div class="bk-cols">
+    <div class="bk-lines"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="bk-addr">
+      <span class="bk-stamp"></span>
+      <b>Mail to</b>
+      <span>Mercy for Mark<br>[Alabama address]</span>
+    </div>
+  </div>
+  <p class="bk-foot">Cards may be shown publicly, in print or online, as part of
+  Mark's clemency campaign. Signing your name is optional.</p>
+</div></div></div></button><button class="pc" data-i="18" aria-label="Daphne Alabama postcard, select to enlarge"><div class="pc-in" style="aspect-ratio:822/1088"><div class="pc-face pc-front"><img src="img/pc/card-18.jpg" alt="Daphne Alabama" loading="lazy"></div><div class="pc-face pc-back"><div class="bk">
+  <p class="bk-prompt">If you were to speak to the Governor, why would you say Mark Jenkins deserves clemency?</p>
+  <div class="bk-cols">
+    <div class="bk-lines"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="bk-addr">
+      <span class="bk-stamp"></span>
+      <b>Mail to</b>
+      <span>Mercy for Mark<br>[Alabama address]</span>
+    </div>
+  </div>
+  <p class="bk-foot">Cards may be shown publicly, in print or online, as part of
+  Mark's clemency campaign. Signing your name is optional.</p>
+</div></div></div></button><button class="pc" data-i="19" aria-label="Greetings from Mobile postcard, select to enlarge"><div class="pc-in" style="aspect-ratio:1080/820"><div class="pc-face pc-front"><img src="img/pc/card-19.jpg" alt="Greetings from Mobile" loading="lazy"></div><div class="pc-face pc-back"><div class="bk">
+  <p class="bk-prompt">If you were to speak to the Governor, why would you say Mark Jenkins deserves clemency?</p>
+  <div class="bk-cols">
+    <div class="bk-lines"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="bk-addr">
+      <span class="bk-stamp"></span>
+      <b>Mail to</b>
+      <span>Mercy for Mark<br>[Alabama address]</span>
+    </div>
+  </div>
+  <p class="bk-foot">Cards may be shown publicly, in print or online, as part of
+  Mark's clemency campaign. Signing your name is optional.</p>
+</div></div></div></button><button class="pc" data-i="20" aria-label="Alabama Vibrant Celebration postcard, select to enlarge"><div class="pc-in" style="aspect-ratio:1080/816"><div class="pc-face pc-front"><img src="img/pc/card-20.jpg" alt="Alabama Vibrant Celebration" loading="lazy"></div><div class="pc-face pc-back"><div class="bk">
+  <p class="bk-prompt">If you were to speak to the Governor, why would you say Mark Jenkins deserves clemency?</p>
+  <div class="bk-cols">
+    <div class="bk-lines"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="bk-addr">
+      <span class="bk-stamp"></span>
+      <b>Mail to</b>
+      <span>Mercy for Mark<br>[Alabama address]</span>
+    </div>
+  </div>
+  <p class="bk-foot">Cards may be shown publicly, in print or online, as part of
+  Mark's clemency campaign. Signing your name is optional.</p>
+</div></div></div></button><button class="pc" data-i="21" aria-label="Birmingham Magic City postcard, select to enlarge"><div class="pc-in" style="aspect-ratio:822/1088"><div class="pc-face pc-front"><img src="img/pc/card-21.jpg" alt="Birmingham Magic City" loading="lazy"></div><div class="pc-face pc-back"><div class="bk">
+  <p class="bk-prompt">If you were to speak to the Governor, why would you say Mark Jenkins deserves clemency?</p>
+  <div class="bk-cols">
+    <div class="bk-lines"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="bk-addr">
+      <span class="bk-stamp"></span>
+      <b>Mail to</b>
+      <span>Mercy for Mark<br>[Alabama address]</span>
+    </div>
+  </div>
+  <p class="bk-foot">Cards may be shown publicly, in print or online, as part of
+  Mark's clemency campaign. Signing your name is optional.</p>
+</div></div></div></button><button class="pc" data-i="22" aria-label="Greetings from Alabama postcard, select to enlarge"><div class="pc-in" style="aspect-ratio:1092/832"><div class="pc-face pc-front"><img src="img/pc/card-22.jpg" alt="Greetings from Alabama" loading="lazy"></div><div class="pc-face pc-back"><div class="bk">
+  <p class="bk-prompt">If you were to speak to the Governor, why would you say Mark Jenkins deserves clemency?</p>
+  <div class="bk-cols">
+    <div class="bk-lines"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="bk-addr">
+      <span class="bk-stamp"></span>
+      <b>Mail to</b>
+      <span>Mercy for Mark<br>[Alabama address]</span>
+    </div>
+  </div>
+  <p class="bk-foot">Cards may be shown publicly, in print or online, as part of
+  Mark's clemency campaign. Signing your name is optional.</p>
+</div></div></div></button><button class="pc" data-i="23" aria-label="Gulf Shores Paper Art postcard, select to enlarge"><div class="pc-in" style="aspect-ratio:818/1082"><div class="pc-face pc-front"><img src="img/pc/card-23.jpg" alt="Gulf Shores Paper Art" loading="lazy"></div><div class="pc-face pc-back"><div class="bk">
+  <p class="bk-prompt">If you were to speak to the Governor, why would you say Mark Jenkins deserves clemency?</p>
+  <div class="bk-cols">
+    <div class="bk-lines"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="bk-addr">
+      <span class="bk-stamp"></span>
+      <b>Mail to</b>
+      <span>Mercy for Mark<br>[Alabama address]</span>
+    </div>
+  </div>
+  <p class="bk-foot">Cards may be shown publicly, in print or online, as part of
+  Mark's clemency campaign. Signing your name is optional.</p>
+</div></div></div></button><button class="pc" data-i="24" aria-label="Alabama Travel Art Vintage postcard, select to enlarge"><div class="pc-in" style="aspect-ratio:824/1084"><div class="pc-face pc-front"><img src="img/pc/card-24.jpg" alt="Alabama Travel Art Vintage" loading="lazy"></div><div class="pc-face pc-back"><div class="bk">
+  <p class="bk-prompt">If you were to speak to the Governor, why would you say Mark Jenkins deserves clemency?</p>
+  <div class="bk-cols">
+    <div class="bk-lines"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="bk-addr">
+      <span class="bk-stamp"></span>
+      <b>Mail to</b>
+      <span>Mercy for Mark<br>[Alabama address]</span>
+    </div>
+  </div>
+  <p class="bk-foot">Cards may be shown publicly, in print or online, as part of
+  Mark's clemency campaign. Signing your name is optional.</p>
+</div></div></div></button><button class="pc" data-i="25" aria-label="Old Postcard Birmingham postcard, select to enlarge"><div class="pc-in" style="aspect-ratio:822/1088"><div class="pc-face pc-front"><img src="img/pc/card-25.jpg" alt="Old Postcard Birmingham" loading="lazy"></div><div class="pc-face pc-back"><div class="bk">
+  <p class="bk-prompt">If you were to speak to the Governor, why would you say Mark Jenkins deserves clemency?</p>
+  <div class="bk-cols">
+    <div class="bk-lines"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="bk-addr">
+      <span class="bk-stamp"></span>
+      <b>Mail to</b>
+      <span>Mercy for Mark<br>[Alabama address]</span>
+    </div>
+  </div>
+  <p class="bk-foot">Cards may be shown publicly, in print or online, as part of
+  Mark's clemency campaign. Signing your name is optional.</p>
+</div></div></div></button><button class="pc" data-i="26" aria-label="Montgomery Vintage Travel postcard, select to enlarge"><div class="pc-in" style="aspect-ratio:1086/824"><div class="pc-face pc-front"><img src="img/pc/card-26.jpg" alt="Montgomery Vintage Travel" loading="lazy"></div><div class="pc-face pc-back"><div class="bk">
+  <p class="bk-prompt">If you were to speak to the Governor, why would you say Mark Jenkins deserves clemency?</p>
+  <div class="bk-cols">
+    <div class="bk-lines"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="bk-addr">
+      <span class="bk-stamp"></span>
+      <b>Mail to</b>
+      <span>Mercy for Mark<br>[Alabama address]</span>
+    </div>
+  </div>
+  <p class="bk-foot">Cards may be shown publicly, in print or online, as part of
+  Mark's clemency campaign. Signing your name is optional.</p>
+</div></div></div></button><button class="pc" data-i="27" aria-label="Birmingham U.S.A. postcard, select to enlarge"><div class="pc-in" style="aspect-ratio:1078/818"><div class="pc-face pc-front"><img src="img/pc/card-27.jpg" alt="Birmingham U.S.A." loading="lazy"></div><div class="pc-face pc-back"><div class="bk">
+  <p class="bk-prompt">If you were to speak to the Governor, why would you say Mark Jenkins deserves clemency?</p>
+  <div class="bk-cols">
+    <div class="bk-lines"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="bk-addr">
+      <span class="bk-stamp"></span>
+      <b>Mail to</b>
+      <span>Mercy for Mark<br>[Alabama address]</span>
+    </div>
+  </div>
+  <p class="bk-foot">Cards may be shown publicly, in print or online, as part of
+  Mark's clemency campaign. Signing your name is optional.</p>
+</div></div></div></button><button class="pc" data-i="28" aria-label="Alabama Vintage Travel postcard, select to enlarge"><div class="pc-in" style="aspect-ratio:592/770"><div class="pc-face pc-front"><img src="img/pc/card-28.jpg" alt="Alabama Vintage Travel" loading="lazy"></div><div class="pc-face pc-back"><div class="bk">
+  <p class="bk-prompt">If you were to speak to the Governor, why would you say Mark Jenkins deserves clemency?</p>
+  <div class="bk-cols">
+    <div class="bk-lines"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="bk-addr">
+      <span class="bk-stamp"></span>
+      <b>Mail to</b>
+      <span>Mercy for Mark<br>[Alabama address]</span>
+    </div>
+  </div>
+  <p class="bk-foot">Cards may be shown publicly, in print or online, as part of
+  Mark's clemency campaign. Signing your name is optional.</p>
+</div></div></div></button><button class="pc" data-i="29" aria-label="Greetings from Alabama Theme postcard, select to enlarge"><div class="pc-in" style="aspect-ratio:1090/828"><div class="pc-face pc-front"><img src="img/pc/card-29.jpg" alt="Greetings from Alabama Theme" loading="lazy"></div><div class="pc-face pc-back"><div class="bk">
+  <p class="bk-prompt">If you were to speak to the Governor, why would you say Mark Jenkins deserves clemency?</p>
+  <div class="bk-cols">
+    <div class="bk-lines"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="bk-addr">
+      <span class="bk-stamp"></span>
+      <b>Mail to</b>
+      <span>Mercy for Mark<br>[Alabama address]</span>
+    </div>
+  </div>
+  <p class="bk-foot">Cards may be shown publicly, in print or online, as part of
+  Mark's clemency campaign. Signing your name is optional.</p>
+</div></div></div></button><button class="pc" data-i="30" aria-label="Alabama Art Deco Golden Age postcard, select to enlarge"><div class="pc-in" style="aspect-ratio:590/774"><div class="pc-face pc-front"><img src="img/pc/card-30.jpg" alt="Alabama Art Deco Golden Age" loading="lazy"></div><div class="pc-face pc-back"><div class="bk">
+  <p class="bk-prompt">If you were to speak to the Governor, why would you say Mark Jenkins deserves clemency?</p>
+  <div class="bk-cols">
+    <div class="bk-lines"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="bk-addr">
+      <span class="bk-stamp"></span>
+      <b>Mail to</b>
+      <span>Mercy for Mark<br>[Alabama address]</span>
+    </div>
+  </div>
+  <p class="bk-foot">Cards may be shown publicly, in print or online, as part of
+  Mark's clemency campaign. Signing your name is optional.</p>
+</div></div></div></button><button class="pc" data-i="31" aria-label="Fairhope Paper Art postcard, select to enlarge"><div class="pc-in" style="aspect-ratio:822/1084"><div class="pc-face pc-front"><img src="img/pc/card-31.jpg" alt="Fairhope Paper Art" loading="lazy"></div><div class="pc-face pc-back"><div class="bk">
+  <p class="bk-prompt">If you were to speak to the Governor, why would you say Mark Jenkins deserves clemency?</p>
+  <div class="bk-cols">
+    <div class="bk-lines"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="bk-addr">
+      <span class="bk-stamp"></span>
+      <b>Mail to</b>
+      <span>Mercy for Mark<br>[Alabama address]</span>
+    </div>
+  </div>
+  <p class="bk-foot">Cards may be shown publicly, in print or online, as part of
+  Mark's clemency campaign. Signing your name is optional.</p>
+</div></div></div></button><button class="pc" data-i="32" aria-label="Gadsden Vintage postcard, select to enlarge"><div class="pc-in" style="aspect-ratio:826/1088"><div class="pc-face pc-front"><img src="img/pc/card-32.jpg" alt="Gadsden Vintage" loading="lazy"></div><div class="pc-face pc-back"><div class="bk">
+  <p class="bk-prompt">If you were to speak to the Governor, why would you say Mark Jenkins deserves clemency?</p>
+  <div class="bk-cols">
+    <div class="bk-lines"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="bk-addr">
+      <span class="bk-stamp"></span>
+      <b>Mail to</b>
+      <span>Mercy for Mark<br>[Alabama address]</span>
+    </div>
+  </div>
+  <p class="bk-foot">Cards may be shown publicly, in print or online, as part of
+  Mark's clemency campaign. Signing your name is optional.</p>
+</div></div></div></button><button class="pc" data-i="33" aria-label="Sending Love From Alabama postcard, select to enlarge"><div class="pc-in" style="aspect-ratio:824/1090"><div class="pc-face pc-front"><img src="img/pc/card-33.jpg" alt="Sending Love From Alabama" loading="lazy"></div><div class="pc-face pc-back"><div class="bk">
+  <p class="bk-prompt">If you were to speak to the Governor, why would you say Mark Jenkins deserves clemency?</p>
+  <div class="bk-cols">
+    <div class="bk-lines"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="bk-addr">
+      <span class="bk-stamp"></span>
+      <b>Mail to</b>
+      <span>Mercy for Mark<br>[Alabama address]</span>
+    </div>
+  </div>
+  <p class="bk-foot">Cards may be shown publicly, in print or online, as part of
+  Mark's clemency campaign. Signing your name is optional.</p>
+</div></div></div></button><button class="pc" data-i="34" aria-label="Birmingham Alabama postcard, select to enlarge"><div class="pc-in" style="aspect-ratio:818/1084"><div class="pc-face pc-front"><img src="img/pc/card-34.jpg" alt="Birmingham Alabama" loading="lazy"></div><div class="pc-face pc-back"><div class="bk">
+  <p class="bk-prompt">If you were to speak to the Governor, why would you say Mark Jenkins deserves clemency?</p>
+  <div class="bk-cols">
+    <div class="bk-lines"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="bk-addr">
+      <span class="bk-stamp"></span>
+      <b>Mail to</b>
+      <span>Mercy for Mark<br>[Alabama address]</span>
+    </div>
+  </div>
+  <p class="bk-foot">Cards may be shown publicly, in print or online, as part of
+  Mark's clemency campaign. Signing your name is optional.</p>
+</div></div></div></button><button class="pc" data-i="35" aria-label="Downtown Birmingham postcard, select to enlarge"><div class="pc-in" style="aspect-ratio:1080/822"><div class="pc-face pc-front"><img src="img/pc/card-35.jpg" alt="Downtown Birmingham" loading="lazy"></div><div class="pc-face pc-back"><div class="bk">
+  <p class="bk-prompt">If you were to speak to the Governor, why would you say Mark Jenkins deserves clemency?</p>
+  <div class="bk-cols">
+    <div class="bk-lines"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="bk-addr">
+      <span class="bk-stamp"></span>
+      <b>Mail to</b>
+      <span>Mercy for Mark<br>[Alabama address]</span>
+    </div>
+  </div>
+  <p class="bk-foot">Cards may be shown publicly, in print or online, as part of
+  Mark's clemency campaign. Signing your name is optional.</p>
+</div></div></div></button><button class="pc" data-i="36" aria-label="Montgomery Big Letters postcard, select to enlarge"><div class="pc-in" style="aspect-ratio:1080/826"><div class="pc-face pc-front"><img src="img/pc/card-36.jpg" alt="Montgomery Big Letters" loading="lazy"></div><div class="pc-face pc-back"><div class="bk">
+  <p class="bk-prompt">If you were to speak to the Governor, why would you say Mark Jenkins deserves clemency?</p>
+  <div class="bk-cols">
+    <div class="bk-lines"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="bk-addr">
+      <span class="bk-stamp"></span>
+      <b>Mail to</b>
+      <span>Mercy for Mark<br>[Alabama address]</span>
+    </div>
+  </div>
+  <p class="bk-foot">Cards may be shown publicly, in print or online, as part of
+  Mark's clemency campaign. Signing your name is optional.</p>
+</div></div></div></button></div>
+</div></section>
+
+<section class="band"><div class="wrap narrow">
+  <p class="eyebrow">Coming back in the mail</p>
+  <h2>The wall fills as they arrive.</h2>
+  <p class="lede">The first cards were handed out in August 2026. As they are
+  returned, each one is scanned and its written side replaces the blank reverse
+  above, so this page grows all the way to the decision.</p>
+</div></section>
+
+<section class="pc-ask"><div class="wrap">
+  <div class="media">
+    <div>
+      <p class="eyebrow">Add your card</p>
+      <h2>There is room on this wall for yours.</h2>
+      <p>If your congregation, class, or group would like a stack of cards, tell
+      us how many and where to send them. If you already have one, fill it in and
+      mail it to Montgomery; every card that comes back is scanned and added
+      here.</p>
+      <div class="btnrow">
+        <a class="btn" href="mailto:teammarkjenkins@gmail.com?subject=Postcards%20for%20Mark%20Jenkins">Request cards</a>
+        <a class="btn ghost" href="mailto:teammarkjenkins@gmail.com?subject=A%20card%20on%20its%20way">Tell us yours is coming</a>
+      </div>
+    </div>
+    <div class="pc-ways">
+      <p class="rf-lab">Other ways to help</p>
+      <ul>
+        <li><a href="help.html"><b>Write to Governor Ivey</b>
+          <span>A letter in your own words carries further than a signature.</span></a></li>
+        <li><a href="officers.html"><b>Read the officers' letters</b>
+          <span>Sixty of the people paid to watch Mark asked for his life.</span></a></li>
+        <li><a href="why-clemency.html"><b>Learn the grounds for clemency</b>
+          <span>Three reasons, and what a court was never allowed to weigh.</span></a></li>
+        <li><a href="mailto:teammarkjenkins@gmail.com"><b>Get updates</b>
+          <span>Events and actions in the months ahead.</span></a></li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<dialog id="pcdl">
+  <div class="dg" id="dg"><div class="dg-in">
+    <div class="dg-face dg-front"><img id="dg-img" src="" alt=""></div>
+    <div class="dg-face dg-back"><div class="bk">
+  <p class="bk-prompt">If you were to speak to the Governor, why would you say Mark Jenkins deserves clemency?</p>
+  <div class="bk-cols">
+    <div class="bk-lines"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="bk-addr">
+      <span class="bk-stamp"></span>
+      <b>Mail to</b>
+      <span>Mercy for Mark<br>[Alabama address]</span>
+    </div>
+  </div>
+  <p class="bk-foot">Cards may be shown publicly, in print or online, as part of
+  Mark's clemency campaign. Signing your name is optional.</p>
+</div></div>
+  </div></div>
+  <div class="dg-bar">
+    <p id="dg-cap"></p>
+    <div style="display:flex;gap:10px">
+      <button id="dg-flip">Turn it over</button>
+      <button class="x" id="dg-x">Close</button>
+    </div>
+  </div>
+</dialog>
+
+<script>
+const CARDS = [{"i": 1, "f": "card-01.jpg", "title": "Alabama State Map", "w": 820, "h": 1088, "orient": "portrait"}, {"i": 2, "f": "card-02.jpg", "title": "Alabama Hyper-Realistic State", "w": 826, "h": 1092, "orient": "portrait"}, {"i": 3, "f": "card-03.jpg", "title": "Alabama Patriotic Spirit Vintage", "w": 824, "h": 1084, "orient": "portrait"}, {"i": 4, "f": "card-04.jpg", "title": "Greetings from Birmingham", "w": 1084, "h": 824, "orient": "landscape"}, {"i": 5, "f": "card-05.jpg", "title": "Alabama Sailboat Vintage Travel", "w": 820, "h": 1082, "orient": "portrait"}, {"i": 6, "f": "card-06.jpg", "title": "Dauphin Island", "w": 1088, "h": 822, "orient": "landscape"}, {"i": 7, "f": "card-07.jpg", "title": "Gulf Shores Beach", "w": 820, "h": 1084, "orient": "portrait"}, {"i": 8, "f": "card-08.jpg", "title": "Greetings from Mobile Vintage", "w": 1090, "h": 828, "orient": "landscape"}, {"i": 9, "f": "card-09.jpg", "title": "Birmingham Travel Art Vintage", "w": 820, "h": 1082, "orient": "portrait"}, {"i": 10, "f": "card-10.jpg", "title": "Travel Alabama Cotton State", "w": 828, "h": 1092, "orient": "portrait"}, {"i": 11, "f": "card-11.jpg", "title": "Vintage Tuscaloosa", "w": 800, "h": 1118, "orient": "portrait"}, {"i": 12, "f": "card-12.jpg", "title": "Gulf Shores Alabama", "w": 1080, "h": 822, "orient": "landscape"}, {"i": 13, "f": "card-13.jpg", "title": "Vintage Mobile", "w": 808, "h": 1128, "orient": "portrait"}, {"i": 14, "f": "card-14.jpg", "title": "Birmingham Skyline", "w": 1086, "h": 828, "orient": "landscape"}, {"i": 15, "f": "card-15.jpg", "title": "Alabama State Shaped Watercolor", "w": 826, "h": 1090, "orient": "portrait"}, {"i": 16, "f": "card-16.jpg", "title": "Alabama Heart of Dixie", "w": 698, "h": 986, "orient": "portrait"}, {"i": 17, "f": "card-17.jpg", "title": "Greetings From Alabama Vintage", "w": 1084, "h": 818, "orient": "landscape"}, {"i": 18, "f": "card-18.jpg", "title": "Daphne Alabama", "w": 822, "h": 1088, "orient": "portrait"}, {"i": 19, "f": "card-19.jpg", "title": "Greetings from Mobile", "w": 1080, "h": 820, "orient": "landscape"}, {"i": 20, "f": "card-20.jpg", "title": "Alabama Vibrant Celebration", "w": 1080, "h": 816, "orient": "landscape"}, {"i": 21, "f": "card-21.jpg", "title": "Birmingham Magic City", "w": 822, "h": 1088, "orient": "portrait"}, {"i": 22, "f": "card-22.jpg", "title": "Greetings from Alabama", "w": 1092, "h": 832, "orient": "landscape"}, {"i": 23, "f": "card-23.jpg", "title": "Gulf Shores Paper Art", "w": 818, "h": 1082, "orient": "portrait"}, {"i": 24, "f": "card-24.jpg", "title": "Alabama Travel Art Vintage", "w": 824, "h": 1084, "orient": "portrait"}, {"i": 25, "f": "card-25.jpg", "title": "Old Postcard Birmingham", "w": 822, "h": 1088, "orient": "portrait"}, {"i": 26, "f": "card-26.jpg", "title": "Montgomery Vintage Travel", "w": 1086, "h": 824, "orient": "landscape"}, {"i": 27, "f": "card-27.jpg", "title": "Birmingham U.S.A.", "w": 1078, "h": 818, "orient": "landscape"}, {"i": 28, "f": "card-28.jpg", "title": "Alabama Vintage Travel", "w": 592, "h": 770, "orient": "portrait"}, {"i": 29, "f": "card-29.jpg", "title": "Greetings from Alabama Theme", "w": 1090, "h": 828, "orient": "landscape"}, {"i": 30, "f": "card-30.jpg", "title": "Alabama Art Deco Golden Age", "w": 590, "h": 774, "orient": "portrait"}, {"i": 31, "f": "card-31.jpg", "title": "Fairhope Paper Art", "w": 822, "h": 1084, "orient": "portrait"}, {"i": 32, "f": "card-32.jpg", "title": "Gadsden Vintage", "w": 826, "h": 1088, "orient": "portrait"}, {"i": 33, "f": "card-33.jpg", "title": "Sending Love From Alabama", "w": 824, "h": 1090, "orient": "portrait"}, {"i": 34, "f": "card-34.jpg", "title": "Birmingham Alabama", "w": 818, "h": 1084, "orient": "portrait"}, {"i": 35, "f": "card-35.jpg", "title": "Downtown Birmingham", "w": 1080, "h": 822, "orient": "landscape"}, {"i": 36, "f": "card-36.jpg", "title": "Montgomery Big Letters", "w": 1080, "h": 826, "orient": "landscape"}];
+const tap = document.getElementById('tap');
+const dl = document.getElementById('pcdl');
+const dg = document.getElementById('dg');
+
+document.querySelector('.pc-controls .views').addEventListener('click', e => {
+  const b = e.target.closest('button'); if(!b) return;
+  document.querySelectorAll('.pc-controls .views button')
+    .forEach(x => x.classList.toggle('on', x === b));
+  tap.classList.toggle('backs', b.dataset.side === 'back');
+});
+
+tap.addEventListener('click', e => {
+  const b = e.target.closest('.pc'); if(!b) return;
+  const c = CARDS.find(x => x.i === +b.dataset.i); if(!c) return;
+  const img = document.getElementById('dg-img');
+  img.src = 'img/pc/' + c.f; img.alt = c.title;
+  dg.querySelector('.dg-in').style.aspectRatio = c.w + '/' + c.h;
+  dg.classList.remove('flipped');
+  document.getElementById('dg-cap').textContent = c.title;
+  dl.showModal();
+});
+document.getElementById('dg-flip').addEventListener('click',
+  () => dg.classList.toggle('flipped'));
+document.getElementById('dg-x').addEventListener('click', () => dl.close());
+dl.addEventListener('click', e => { if(e.target === dl) dl.close(); });
+</script>
+</main>
+<footer class="foot"><div class="wrap">
+  <div>
+    <a class="wordmark" href="index.html">Mercy for <s>Mark</s></a>
+    <p>Mark Allen Jenkins has been on Alabama's death row for more than
+    thirty-five years. He will never be released. We are asking Governor Ivey
+    to let him die of natural causes in prison.</p>
+  </div>
+  <div><h4>The case</h4><ul>
+    <li><a href="mark.html">Mark's story</a></li>
+    <li><a href="officers.html">The officers</a></li>
+    <li><a href="why-clemency.html">Why clemency</a></li>
+    <li><a href="faq.html">Questions</a></li>
+  </ul></div>
+  <div><h4>Take action</h4><ul>
+    <li><a href="help.html">Ways to help</a></li>
+    <li><a href="postcards.html">The postcard project</a></li>
+    <li><a href="mailto:teammarkjenkins@gmail.com">teammarkjenkins@gmail.com</a></li>
+  </ul></div>
+  <span class="base">Questions, comments, or ideas on how to help Mark?
+  Email <a href="mailto:teammarkjenkins@gmail.com">teammarkjenkins@gmail.com</a>.
+  &nbsp;&middot;&nbsp; Legal representation by the UC Berkeley Law Death Penalty Clinic.</span>
+</div></footer>
+<script>
+document.querySelector('.navtoggle').addEventListener('click', function(){
+  var n = document.getElementById('navlinks');
+  var open = n.classList.toggle('open');
+  this.setAttribute('aria-expanded', open);
+});
+var chap = document.querySelectorAll('.chapnav a');
+if(chap.length){
+  var rail = document.getElementById('rail');
+  document.body.classList.add('has-rail');
+  var secs = [].map.call(chap, function(a){ return document.querySelector(a.getAttribute('href')); });
+  var cur = 0;
+  var nextBtn = document.getElementById('railnext');
+  var topBtn = document.getElementById('railtop');
+
+  var sync = function(){
+    var y = window.scrollY + 180, i = 0;
+    secs.forEach(function(s, n){ if(s && s.offsetTop <= y) i = n; });
+    cur = i;
+    chap.forEach(function(a, n){ a.classList.toggle('on', n === i); });
+    if(nextBtn){
+      var more = i < secs.length - 1;
+      nextBtn.disabled = !more;
+      nextBtn.firstChild.nodeValue = more
+        ? 'Next: ' + chap[i + 1].textContent.replace(/^\d+\.\s*/, '') + ' '
+        : 'End ';
+    }
+  };
+  if(nextBtn) nextBtn.addEventListener('click', function(){
+    var t = secs[cur + 1]; if(t) t.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+  if(topBtn) topBtn.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  /* the rail takes over the moment the header's contents list scrolls away */
+  var head = document.getElementById('headtoc') || document.querySelector('.hero');
+  if(head && 'IntersectionObserver' in window){
+    new IntersectionObserver(function(e){
+      rail.classList.toggle('show', !e[0].isIntersecting);
+    }, {threshold:0}).observe(head);
+  } else {
+    window.addEventListener('scroll', function(){
+      rail.classList.toggle('show', window.scrollY > 420);
+    }, {passive:true});
+  }
+  window.addEventListener('scroll', sync, {passive:true}); sync();
+}
+document.querySelectorAll('.scrolly').forEach(function(sc){
+  var trig = sc.querySelectorAll('.track [data-fig]');
+  var figs = sc.querySelectorAll('.stage figure');
+  if(!trig.length || !figs.length) return;
+  var sync = function(){
+    var line = window.innerHeight * 0.42, cur = trig[0].getAttribute('data-fig');
+    trig.forEach(function(t){
+      if(t.getBoundingClientRect().top <= line) cur = t.getAttribute('data-fig');
+    });
+    figs.forEach(function(f){
+      f.classList.toggle('on', f.getAttribute('data-fig') === cur);
+    });
+  };
+  window.addEventListener('scroll', sync, {passive:true});
+  window.addEventListener('resize', sync);
+  sync();
+});
+/* the scroll-pinned blocks in Mark's story */
+document.querySelectorAll('.pinned').forEach(function(sec){
+  var pin = sec.querySelector('.pin');
+  var kind = sec.getAttribute('data-kind');
+  var cards = sec.querySelectorAll('.ccard');
+  var steps = sec.querySelectorAll('.pin-text > p, .pin-text > .tstep');
+  var figs = sec.querySelectorAll('.pin-media figure, .collage figure');
+  var dots = sec.querySelectorAll('.pin-foot span');
+  var cur = sec.querySelector('.pin-foot b');
+  var num = function(a){ return (sec.getAttribute(a) || '').split(',')
+              .filter(function(s){ return s !== ''; }).map(Number); };
+  var map = num('data-map'), figmap = num('data-figs');
+  var n = kind === 'cards' ? cards.length : map.length;
+  var active = -1;
+  if(!pin || !n) return;
+
+  var top = 67;
+  function size(){
+    var vh = window.innerHeight - 67;
+    top = Math.round(67 + Math.max(0, (vh - pin.offsetHeight) / 2));
+    pin.style.top = top + 'px';
+    sec.style.height = (vh * n) + 'px';
+  }
+  function sync(){
+    var travel = sec.offsetHeight - pin.offsetHeight;
+    var p = travel > 0
+      ? Math.min(Math.max((top - sec.getBoundingClientRect().top) / travel, 0), 1) : 0;
+    var i = Math.min(n - 1, Math.floor(p * n));
+    if(i === active) return;
+    active = i;
+    if(kind === 'cards'){
+      cards.forEach(function(el, k){ el.classList.toggle('on', k === i); });
+      return;
+    }
+    steps.forEach(function(el, k){ el.classList.toggle('on', k === map[i]); });
+    if(kind === 'collage'){
+      figs.forEach(function(el, k){ el.classList.toggle('on', k <= i); });
+    } else if(figmap.length === n){
+      figs.forEach(function(el, k){ el.classList.toggle('on', k === figmap[i]); });
+    }
+    dots.forEach(function(el, k){ el.classList.toggle('on', k === i); });
+    if(cur) cur.textContent = i + 1;
+  }
+  window.addEventListener('scroll', sync, {passive:true});
+  window.addEventListener('resize', function(){ size(); active = -1; sync(); });
+  window.addEventListener('load', function(){ size(); active = -1; sync(); });
+  size(); sync();
+});
+if('IntersectionObserver' in window){
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); }
+    });
+  }, {threshold:0.2});
+  document.querySelectorAll('.reveal').forEach(function(el){ rio.observe(el); });
+} else {
+  document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+}
+document.querySelectorAll('.contread').forEach(function(b){
+  b.addEventListener('click', function(){
+    var t = document.querySelector(b.getAttribute('data-to'));
+    if(t) t.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+});
+var zooms = document.querySelectorAll('button.zoom');
+if(zooms.length){
+  var lb = document.createElement('dialog');
+  lb.className = 'lightbox';
+  lb.innerHTML = '<img alt=""><div class="lb-bar"><span></span>' +
+    '<button type="button">Close</button></div>';
+  document.body.appendChild(lb);
+  var lbImg = lb.querySelector('img'), lbCap = lb.querySelector('span');
+  zooms.forEach(function(b){
+    b.addEventListener('click', function(){
+      var im = b.querySelector('img');
+      lbImg.src = im.src; lbImg.alt = im.alt || '';
+      var fc = b.parentNode.querySelector('figcaption');
+      lbCap.textContent = fc ? fc.textContent : (im.alt || '');
+      lb.showModal();
+    });
+  });
+  lb.querySelector('.lb-bar button').addEventListener('click', function(){ lb.close(); });
+  lb.addEventListener('click', function(e){ if(e.target === lb) lb.close(); });
+}
+if(window.__R){
+  var TIERTXT = {
+    2:['Documented in the record','This appears in records reviewed by Dr. Ouaou, or is affirmed in his own findings.'],
+    1:['Reported, and consistent with the record',"His own account. Dr. Ouaou states that records corroborate and confirm nearly all aspects of the history he reported, but this specific factor is not independently documented."]};
+
+  /* a marked factor opens its source in a panel beside the factor itself */
+  var closeSide = function(body){
+    var s = body.querySelector('.rf-side');
+    if(s){ s.hidden = true; s.removeAttribute('style'); }
+    body.querySelectorAll('[data-r]').forEach(function(o){
+      o.setAttribute('aria-pressed', 'false'); });
+  };
+  var placeSide = function(side, btn, body){
+    var b = body.getBoundingClientRect(), r = btn.getBoundingClientRect();
+    var w = side.offsetWidth, h = side.offsetHeight;
+    var left = r.right - b.left + 14;
+    if(left + w > b.width) left = r.left - b.left - w - 14;
+    if(left < 0) left = Math.max(0, (b.width - w) / 2);
+    var top = r.top - b.top - 10;
+    top = Math.max(0, Math.min(top, Math.max(0, body.offsetHeight - h)));
+    side.style.left = Math.round(left) + 'px';
+    side.style.top = Math.round(top) + 'px';
+  };
+  document.querySelectorAll('[data-r]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var d = window.__R[btn.getAttribute('data-r')]; if(!d) return;
+      var body = btn.closest('.acc-body') || btn.closest('.rf-outside');
+      var side = body && body.querySelector('.rf-side');
+      if(!side) return;
+      var already = btn.getAttribute('aria-pressed') === 'true';
+      closeSide(body);
+      if(already) return;
+      btn.setAttribute('aria-pressed', 'true');
+      var t = TIERTXT[d.tier];
+      side.innerHTML = '<button class="cls" type="button" aria-label="Close">&times;</button>' +
+        '<p class="where">' + d.where + '</p><h4>' + d.label + '</h4>' +
+        '<blockquote>&ldquo;' + d.src + '&rdquo;</blockquote>' +
+        '<p class="tier"><s>' + t[0] + '.</s> ' + t[1] + '</p>';
+      side.hidden = false;
+      placeSide(side, btn, body);
+      side.querySelector('.cls').addEventListener('click', function(e){
+        e.stopPropagation(); closeSide(body);
+      });
+    });
+  });
+  /* closing a period puts it back the way it was found */
+  document.querySelectorAll('.acc').forEach(function(acc){
+    acc.addEventListener('toggle', function(){
+      var body = acc.querySelector('.acc-body');
+      if(body) closeSide(body);
+    });
+  });
+
+  /* a diagnostic finding opens directly beneath the strip */
+  var dpanel = document.getElementById('dpanel');
+  document.querySelectorAll('[data-d]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var d = window.__R[btn.getAttribute('data-d')]; if(!d || !dpanel) return;
+      var already = btn.getAttribute('aria-pressed') === 'true';
+      document.querySelectorAll('[data-d]').forEach(function(o){
+        o.setAttribute('aria-pressed','false'); });
+      if(already){
+        dpanel.innerHTML = '<p class="empty">Select a finding above to see the supporting line from the report.</p>';
+        return;
+      }
+      btn.setAttribute('aria-pressed','true');
+      dpanel.innerHTML = '<p class="where">' + d.where + '</p>' +
+        '<blockquote>&ldquo;' + d.src + '&rdquo;</blockquote>';
+    });
+  });
+}
+</script>
+</body></html>
