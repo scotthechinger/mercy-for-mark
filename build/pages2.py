@@ -96,10 +96,10 @@ def risk_tool():
   </aside>
 
   <p class="k eyebrow-k" style="margin-top:56px">The diagnosis</p>
-  <h3 style="margin-top:0">What the framework above does not tell you</h3>
-  <p class="dek" style="max-width:70ch">Risk factors explain where a disability comes
-  from. They do not establish that someone has one. That was settled separately, by
-  testing.</p>
+  <h3 style="margin-top:0">How the diagnosis was established</h3>
+  <p class="dek" style="max-width:70ch">Intellectual disability has three diagnostic
+  criteria. Dr. Ouaou examined Mark over two days at Holman, tested him, and read the
+  records of his childhood. All three criteria were met.</p>
   <div class="dstrip" style="margin-top:22px">%s</div>
   <div class="dpanel" id="dpanel"><p class="empty">Select a finding above to see the
   line from Dr. Ouaou's report that supports it.</p></div>
@@ -115,11 +115,13 @@ def why_clemency():
 <section class="hero full mid" id="headtoc"><div class="wrap">
   <div>
     <p class="eyebrow">Why clemency</p>
-    <h1>Three powerful reasons for mercy.</h1>
+    <h1>Four powerful reasons for mercy.</h1>
     <p class="lede">Mark Jenkins was sentenced to death before the Supreme Court
     forbade executing people who were <a href="#disability">intellectually
-    disabled</a>, by a vote that was <a href="#jury">not unanimous</a>, and by a jury
-    that never heard of his <a href="#childhood">childhood abuse</a>.</p>
+    disabled</a>, by a jury that never heard of his <a href="#childhood">childhood
+    abuse</a>, by a vote that was <a href="#jury">not unanimous</a>, and despite
+    <a href="#transformation">Mark's transformation</a> over the last thirty-five
+    years.</p>
     <div class="btnrow">
       <a class="btn arrow" href="#disability">Explore the case<span>&darr;</span></a>
     </div>
@@ -150,7 +152,6 @@ def why_clemency():
       <p style="margin-bottom:0">Based on extensive testing, a lengthy evaluation,
       and voluminous records from Mark's childhood, neuropsychologist Robert Ouaou,
       Ph.D., diagnosed Mark with intellectual disability.</p>
-      <a class="jump" href="#framework">The breakdown<span>&darr;</span></a>
     </div>
     <figure class="reportfig">
       <a href="docs/neuropsychological-assessment.pdf" target="_blank" rel="noopener">
@@ -162,7 +163,20 @@ def why_clemency():
     </figure>
   </div>
 
-  __TOOL__
+  
+  
+
+  <p class="k eyebrow-k" style="margin-top:56px">The diagnosis</p>
+  <h3 style="margin-top:0">How the diagnosis was established</h3>
+  <p class="dek" style="max-width:70ch">Intellectual disability has three diagnostic
+  criteria. Dr. Ouaou examined Mark over two days at Holman, tested him, and read the
+  records of his childhood. All three criteria were met.</p>
+  <div class="dstrip" style="margin-top:22px"><button class="dt" data-d="d23" aria-pressed="false"><i>Full-Scale IQ</i><b>69.8</b><span>Flynn-adjusted, from 74. 95% confidence interval 67–75. The threshold for intellectual disability is approximately 70 ± 5.</span></button><button class="dt" data-d="d24" aria-pressed="false"><i>Executive function</i><b>1st percentile</b><span>Planning, mental flexibility, and reasoning. On several measures, at or below the 1st percentile.</span></button><button class="dt" data-d="d25" aria-pressed="false"><i>Adaptive functioning</i><b>All three domains</b><span>Deficits documented across the conceptual, social, and practical domains, the second of the three diagnostic criteria.</span></button><button class="dt" data-d="d26" aria-pressed="false"><i>Onset</i><b>Before age 18</b><span>The third criterion. Documented in school records from age eight forward.</span></button><button class="dt" data-d="d27" aria-pressed="false"><i>Effort testing</i><b>No malingering</b><span>Four independent measures. He was not exaggerating.</span></button></div>
+  <div class="dpanel" id="dpanel"><p class="empty">Select a finding above to see the
+  line from Dr. Ouaou's report that supports it.</p></div>
+  <p class="small" style="margin-top:16px">Robert H. Ouaou, Ph.D., Forensic Neuropsychological Assessment of Mark Jenkins, May 3, 2023. Evaluation conducted at Holman Correctional Facility, November 8–9, 2022.</p>
+  <script>window.__R = {"r1": {"label": "Maternal illness", "where": "Prenatal &middot; Biomedical", "tier": 2, "src": "Donna experienced kidney pain on admission to the hospital, and she was found to have a urinary tract infection due to E.coli at the time of the birth."}, "r2": {"label": "Domestic violence", "where": "Prenatal &middot; Social", "tier": 1, "src": "He stated that his father beat his mother and he (Mr. Jenkins) had to clean up after the violence."}, "r3": {"label": "Parental drug use", "where": "Prenatal &middot; Behavioral", "tier": 1, "src": "His mother, father (i.e., his stepfather), and other family members used and manufactured methamphetamines"}, "r4": {"label": "Prematurity", "where": "Perinatal &middot; Biomedical", "tier": 2, "src": "Mark Jenkins was born 09/13/1967 and noted to be a premature infant who weighed 5 pounds 1 ounce."}, "r5": {"label": "Neonatal disorders", "where": "Perinatal &middot; Biomedical", "tier": 2, "src": "Medical records indicate multiple complications during birth. His mother Donna's membranes ruptured prematurely, and doctors were forced to induce labor approximately two weeks early."}, "r6": {"label": "Parental rejection of caretaking", "where": "Perinatal &middot; Behavioral", "tier": 2, "src": "His mother initially put Mr. Jenkins up for adoption, and Mr. Jenkins was discharged from the hospital to an adoption agency."}, "r7": {"label": "Traumatic brain injury", "where": "Postnatal &middot; Biomedical", "tier": 2, "src": "head injuries to the frontal area of the brain during the developmental period, like the ones Mr. Jenkins suffered, are a critical etiology of significant impairments in behavior and emotion."}, "r8": {"label": "Malnutrition", "where": "Postnatal &middot; Biomedical", "tier": 2, "src": "He stated that the methamphetamine use took away his hunger, which was helpful because he had no money for food."}, "r9": {"label": "Impaired child–caregiver interaction", "where": "Postnatal &middot; Social", "tier": 2, "src": "Financially extorted by his own mother"}, "r10": {"label": "Lack of adequate stimulation", "where": "Postnatal &middot; Social", "tier": 1, "src": "His entire adolescence was marked by instability, neglect, physical violence, and substance abuse."}, "r11": {"label": "Family poverty", "where": "Postnatal &middot; Social", "tier": 2, "src": "At time of crime, living in messy, largely empty bungalow with no electricity and that others found for him"}, "r12": {"label": "Institutionalization", "where": "Postnatal &middot; Social", "tier": 2, "src": "placed in special education when in custody of juvenile justice system"}, "r13": {"label": "Child abuse and neglect", "where": "Postnatal &middot; Behavioral", "tier": 2, "src": "it was noted that his parents physically abused him, he suffered from neglect, he experienced possible auditory hallucinations, and he had a history of suicide attempts by head banging."}, "r14": {"label": "Domestic violence", "where": "Postnatal &middot; Behavioral", "tier": 2, "src": "His father and mother were physically violent toward Mr. Jenkins. His father hit him regularly and knocked him out on multiple occasions."}, "r15": {"label": "Social deprivation", "where": "Postnatal &middot; Behavioral", "tier": 2, "src": "Mr. Jenkins was periodically homeless during childhood and adolescence from the age of 13 to 19"}, "r16": {"label": "Impaired parenting", "where": "Postnatal &middot; Educational", "tier": 2, "src": "Steve Jenkins beat Mr. Jenkins daily with pieces of wood, belt buckles, and other objects around the house."}, "r17": {"label": "Delayed diagnosis", "where": "Postnatal &middot; Educational", "tier": 2, "src": "A 1981 psychological evaluation in San Bernardino County Juvenile Hall found that Mr. Jenkins “appears to be suffering from a definite learning disability.”"}, "r18": {"label": "Inadequate early intervention services", "where": "Postnatal &middot; Educational", "tier": 2, "src": "the evaluator expressed “grave concern” for Mr. Jenkins ’s emotional wellbeing and requested immediate psychotherapeutic intervention as well as long-term treatment."}, "r19": {"label": "Inadequate special education services", "where": "Postnatal &middot; Educational", "tier": 2, "src": "He needed but never received specialized attention for his intellectual deficits."}, "r20": {"label": "Inadequate family support", "where": "Postnatal &middot; Educational", "tier": 2, "src": "Mr. Jenkins also ran away from home to avoid being violated."}, "r21": {"label": "Severe methamphetamine use on a developing brain", "tier": 2, "src": "He reported that he abused methamphetamines every day from approximately age 15 until age 19.", "where": "Named by Dr. Ouaou &middot; outside the framework"}, "r22": {"label": "Posttraumatic stress", "tier": 2, "src": "These etiologies include posttraumatic stress, neglect, abuse, the effects of severe methamphetamine use on a developing brain and traumatic brain injury.", "where": "Named by Dr. Ouaou &middot; outside the framework"}, "d23": {"label": "Full-Scale IQ", "where": "Diagnostic finding", "tier": 2, "src": "Mr. Jenkins’ IQ of 69.8 (after adjusting for the Flynn Effect) is significantly impaired and within the range for intellectual disability."}, "d24": {"label": "Executive function", "where": "Diagnostic finding", "tier": 2, "src": "His severe executive functioning deficits mean that, in a room of 100 randomly selected people his age, Mr. Jenkins’ ability to plan, adapt, adjust, and have insight into his behavior is likely to be more impaired than every other person in the room."}, "d25": {"label": "Adaptive functioning", "where": "Diagnostic finding", "tier": 2, "src": "[V]oluminous records that contain correlative data related to Mr. Jenkins’ birth, childhood, and adolescence and demonstrate significant deficits in all three domains of adaptive functioning"}, "d26": {"label": "Onset", "where": "Diagnostic finding", "tier": 2, "src": "The onset of Mr. Jenkins’ intellectual and adaptive deficits occurred during the developmental period, specifically before the age of eighteen, and continue to this day."}, "d27": {"label": "Effort testing", "where": "Diagnostic finding", "tier": 2, "src": "On multiple tests of effort and motivation (TOMM, Rey 15, CVLT3 Forced Choice, embedded measures), Mr. Jenkins performed within normal limits, well above designated cutoffs."}};</script>
+
 
   <div class="splitmedia tall" style="margin-top:56px">
     <div>
@@ -191,12 +205,45 @@ def why_clemency():
         rel="noopener">Read the decision</a>.</figcaption>
     </figure>
   </div>
+  <button class="contread" data-to="#childhood"><i></i><span>Continue</span>
+    <em>&darr;</em></button>
+</article>
+
+<article class="chapter tone" id="childhood">
+  <p class="num">02. <span>Childhood abuse unheard</span></p>
+  <h2>A childhood the jury was never told about</h2>
+  <div class="splitmedia">
+    <div>
+      <p>Dr. Sara Boyd, a board-certified forensic psychologist and associate faculty
+      at the University of Virginia, has said that Mark's childhood is one of the
+      worst cases of abuse she has seen in her entire career.</p>
+      <p>During Mark's trial, his attorneys did not tell the jury a single word about
+      it. The Supreme Court has ruled that juries in death penalty cases must be
+      allowed to consider exactly this kind of evidence. Mark's jury heard none.</p>
+      <p style="margin-bottom:0">That childhood is told in full, with the
+      contemporaneous records that document it:</p>
+      <div class="btnrow"><a class="btn" href="mark.html#before">Read Mark's
+      story</a></div>
+    </div>
+    <figure class="docstack">
+      <button class="zoom" type="button" style="--r:-2.4deg;--x:0%;--y:0%;z-index:12">
+        <img class="doc" src="img/doc-a.jpg" alt="Excerpt from a 1981 collateral report describing Mark constantly running away and his parents' indifference"></button>
+      <button class="zoom" type="button" style="--r:1.8deg;--x:9%;--y:19%;z-index:13">
+        <img class="doc" src="img/doc-c.jpg" alt="Excerpt from an evidentiary report recording that Mark's parents were going to beat him"></button>
+      <button class="zoom" type="button" style="--r:-1.2deg;--x:2%;--y:40%;z-index:14">
+        <img class="doc" src="img/doc-e.jpg" alt="Excerpt from a report recording that Mark came from a dysfunctional home and wanted to be loved by his family"></button>
+      <button class="zoom" type="button" style="--r:2.6deg;--x:14%;--y:62%;z-index:15">
+        <img class="doc" src="img/doc-b.jpg" alt="Handwritten note in a record reading that the family blatantly rejected Mark"></button>
+      <figcaption>Contemporaneous records, 1981&ndash;1983. Select any page to read
+      it.</figcaption>
+    </figure>
+  </div>
   <button class="contread" data-to="#jury"><i></i><span>Continue</span>
     <em>&darr;</em></button>
 </article>
 
 <article class="chapter" id="jury">
-  <p class="num">02. <span>Non-unanimous</span></p>
+  <p class="num">03. <span>Non-unanimous</span></p>
   <h2>Mark Jenkins was sentenced to death even though two jurors voted for a life
   sentence.</h2>
 
@@ -252,40 +299,56 @@ def why_clemency():
       </details>
     </figure>
   </div>
-  <button class="contread" data-to="#childhood"><i></i><span>Continue</span>
+  <button class="contread" data-to="#transformation"><i></i><span>Continue</span>
     <em>&darr;</em></button>
 </article>
 
-<article class="chapter tone" id="childhood">
-  <p class="num">03. <span>Childhood abuse unheard</span></p>
-  <h2>A childhood the jury was never told about</h2>
-  <div class="splitmedia">
+<article class="chapter" id="transformation">
+  <p class="num">04. <span>Transformation</span></p>
+  <h2>The man Alabama would execute is not the man it sentenced.</h2>
+
+  <div class="intro sans">
+    <p>Mark was twenty-one at the time of the offense. He is fifty-eight. Thirty-five
+    years of an unbroken institutional record sit between those two men, and the
+    people who kept that record are asking the Governor to spare him.</p>
+  </div>
+
+  <div class="splitmedia tall">
     <div>
-      <p>Dr. Sara Boyd, a board-certified forensic psychologist and associate faculty
-      at the University of Virginia, has said that Mark's childhood is one of the
-      worst cases of abuse she has seen in her entire career.</p>
-      <p>During Mark's trial, his attorneys did not tell the jury a single word about
-      it. The Supreme Court has ruled that juries in death penalty cases must be
-      allowed to consider exactly this kind of evidence. Mark's jury heard none.</p>
-      <p style="margin-bottom:0">That childhood is told in full, with the
-      contemporaneous records that document it:</p>
-      <div class="btnrow"><a class="btn" href="mark.html#before">Read Mark's
-      story</a></div>
+      <p>In September 2026, Sara E. Boyd, Ph.D., a board-certified forensic
+      psychologist, completed a psychological evaluation of Mark. She assessed his
+      history, his current psychological status, and his risk of future violence.</p>
+      <p>Dr. Boyd found that Mark is at very low risk of violence, in prison or
+      anywhere else. That finding matched a separate assessment by Dr. Jonathan
+      Sorensen, a prison violence risk expert, and it matched what the officers at
+      Holman had been saying for years.</p>
+      <p>She also found something she had not seen before in a capital case. In
+      twenty years of this work, she could not recall another person she had
+      evaluated with even two correctional officers willing to write on his behalf.
+      More than sixty have written for Mark.</p>
+      <p style="margin-bottom:0">The remorse, she wrote, is of a degree that is
+      highly unusual in her experience.</p>
     </div>
-    <figure class="docstack">
-      <button class="zoom" type="button" style="--r:-2.4deg;--x:0%;--y:0%;z-index:12">
-        <img class="doc" src="img/doc-a.jpg" alt="Excerpt from a 1981 collateral report describing Mark constantly running away and his parents' indifference"></button>
-      <button class="zoom" type="button" style="--r:1.8deg;--x:9%;--y:19%;z-index:13">
-        <img class="doc" src="img/doc-c.jpg" alt="Excerpt from an evidentiary report recording that Mark's parents were going to beat him"></button>
-      <button class="zoom" type="button" style="--r:-1.2deg;--x:2%;--y:40%;z-index:14">
-        <img class="doc" src="img/doc-e.jpg" alt="Excerpt from a report recording that Mark came from a dysfunctional home and wanted to be loved by his family"></button>
-      <button class="zoom" type="button" style="--r:2.6deg;--x:14%;--y:62%;z-index:15">
-        <img class="doc" src="img/doc-b.jpg" alt="Handwritten note in a record reading that the family blatantly rejected Mark"></button>
-      <figcaption>Contemporaneous records, 1981&ndash;1983. Select any page to read
-      it.</figcaption>
+    <figure class="reportfig">
+      <a href="docs/boyd-assessment.pdf" target="_blank" rel="noopener">
+        <img src="img/boyd-p1.jpg" alt="First page of the psychological evaluation of Mark Jenkins by Sara E. Boyd, Ph.D.">
+      </a>
+      <figcaption><a class="textlink"
+        href="docs/boyd-assessment.pdf" target="_blank"
+        rel="noopener">Read the report</a></figcaption>
     </figure>
   </div>
+
+  <section class="cwband" style="margin-top:52px"><div class="wrap"><div class="inner">
+    <p>&ldquo;I cannot recall another individual whom I&rsquo;ve evaluated for a
+    capital or other serious felony case who had two, let alone more than 60,
+    correctional officers willing to write letters on their behalf.&rdquo;</p>
+  </div></div></section>
+
+  <p class="small" style="margin-top:36px">Sara E. Boyd, Ph.D., ABPP, Psychological
+  Evaluation of Mark Jenkins, September 4, 2026.</p>
 </article>
+
 
 <article class="chapter actblock">
   <h2>Only one person can act now.</h2>
@@ -306,12 +369,13 @@ def why_clemency():
   <button class="railbtn" id="railtop">&uarr; Top</button>
   <div class="links">
     <a href="#disability">01. Disability</a>
-    <a href="#jury">02. The jury</a>
-    <a href="#childhood">03. His childhood</a>
+    <a href="#childhood">02. His childhood</a>
+    <a href="#jury">03. The jury</a>
+    <a href="#transformation">04. Transformation</a>
   </div>
   <button class="railbtn" id="railnext">Next <span>&darr;</span></button>
 </div></nav>
-""".replace('__TOOL__', risk_tool())
+"""
 
 
 # ---------------------------------------------------------------- FAQ

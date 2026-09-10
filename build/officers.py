@@ -22,10 +22,10 @@ IMGS = json.load(open('/home/claude/work/images.json'))
 THEME_LABELS = {
  'no-threat-in-population': 'Would pose no threat',
  'clean-disciplinary-record': 'Clean disciplinary record',
- 'trusted-hall-runner': 'Trusted as a hall runner',
+ 'trusted-hall-runner': 'Trustworthiness',
  'first-letter-ever': 'Never wrote such a letter before',
  'contrast-other-inmates': 'Unlike other men on the row',
- 'service-to-staff': 'Helped the officers',
+ 'service-to-staff': 'Helpfulness',
  'respectful': 'Respectful',
  'would-not-for-anyone': 'Would not do this for anyone else',
  'acknowledges-crime-severity': 'Acknowledges the crime',

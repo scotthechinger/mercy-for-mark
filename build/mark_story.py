@@ -68,6 +68,7 @@ A2_PARAS = [
  when threatened.""",
  """When Mark's older brother reported it, their father threatened to kill the
  children, saying, &ldquo;I'll kill you before I go back to prison.&rdquo;""",
+ """He did have one saving grace as a child: his animals. He had a soul-deep love of the family's horses, dogs, and a pig named Eva, and the animals loved him back. Even when he had barely any food, he shared what he had with the family dogs.""",
  """Mark's struggles were compounded by his profound intellectual disability,
  identified as early as eight in school records but never adequately addressed. His IQ
  is just 69.8, and his executive functioning, which includes planning and
@@ -79,7 +80,8 @@ A2_STEPS = [
  (1, 'teen-01.jpg', "Mark's elementary school photograph."),
  (2, 'teen-03.jpg', 'Mark with his siblings and his mother.'),
  (3, 'teen-02.jpg', 'Mark and his brother Steven Michael as children.'),
- (4, 'teen-04.jpg', "Mark's school photograph, pre-teen."),
+ (4, 'teen-06.jpg', 'Mark, pre-teen, with a fishing rod.'),
+ (5, 'teen-04.jpg', "Mark's school photograph, pre-teen."),
 ]
 A2_CLOSE = """He did have one saving grace as a child: his animals. He had a soul-deep
 love of the family's horses, dogs, and a pig named Eva, and the animals loved him back.

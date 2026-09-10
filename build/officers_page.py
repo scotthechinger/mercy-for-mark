@@ -126,8 +126,7 @@ def render():
       for t, c in sorted(tc.items(), key=lambda kv: -kv[1]))
 
     return CSS + """
-<section class="hero" style="padding:56px 0 30px"><div class="wrap"
-  style="grid-template-columns:1fr">
+<section class="hero officers-hero" style="padding:56px 0 30px"><div class="wrap">
   <div>
     <p class="eyebrow">Alabama law enforcement</p>
     <h1 style="max-width:18ch">Sixty letters from the officers who guarded him.</h1>
@@ -135,6 +134,53 @@ def render():
     Holman Correctional Facility wrote individually to the Governor of Alabama
     about a man on death row. They had never done anything like it before. Every
     word here is theirs.</p>
+  </div>
+  <div class="wordfield" role="img" aria-label="Words the officers used about Mark, cut from their letters: animals, bible, calm, change, changed, christian, church, cooperative, courtesy, decent, dependable, easygoing, exceptional, faith, forgiveness, friendly, funny, gentle, genuine, good, helpful, kind, kindness, mercy, model, peaceful, pleasant, polite, prayer, quiet, redemption, reliable, remorse, remorseful, respect, respectful, safe, sincere, spare, special, thoughtful, trust, trusted, trustworthy">
+      <span class="w" style="--r:2.2deg;--i:0"><img src="img/words/w-friendly.png" alt="" style="height:20px"></span>
+      <span class="w" style="--r:-2.3deg;--i:1"><img src="img/words/w-change.png" alt="" style="height:30px"></span>
+      <span class="w" style="--r:-0.2deg;--i:2"><img src="img/words/w-thoughtful.png" alt="" style="height:20px"></span>
+      <span class="w" style="--r:3.2deg;--i:3"><img src="img/words/w-safe.png" alt="" style="height:33px"></span>
+      <span class="w" style="--r:-0.5deg;--i:4"><img src="img/words/w-cooperative.png" alt="" style="height:27px"></span>
+      <span class="w" style="--r:-0.3deg;--i:5"><img src="img/words/w-funny.png" alt="" style="height:33px"></span>
+      <span class="w" style="--r:-2.3deg;--i:6"><img src="img/words/w-peaceful.png" alt="" style="height:25px"></span>
+      <span class="w" style="--r:3.0deg;--i:7"><img src="img/words/w-polite.png" alt="" style="height:27px"></span>
+      <span class="w" style="--r:0.8deg;--i:8"><img src="img/words/w-kindness.png" alt="" style="height:27px"></span>
+      <span class="w" style="--r:-0.3deg;--i:9"><img src="img/words/w-forgiveness.png" alt="" style="height:22px"></span>
+      <span class="w" style="--r:1.8deg;--i:10"><img src="img/words/w-trustworthy.png" alt="" style="height:20px"></span>
+      <span class="w" style="--r:-2.8deg;--i:11"><img src="img/words/w-respectful.png" alt="" style="height:20px"></span>
+      <span class="w" style="--r:-1.9deg;--i:12"><img src="img/words/w-spare.png" alt="" style="height:30px"></span>
+      <span class="w" style="--r:1.8deg;--i:13"><img src="img/words/w-exceptional.png" alt="" style="height:22px"></span>
+      <span class="w" style="--r:-0.5deg;--i:14"><img src="img/words/w-prayer.png" alt="" style="height:22px"></span>
+      <span class="w" style="--r:-0.6deg;--i:15"><img src="img/words/w-helpful.png" alt="" style="height:25px"></span>
+      <span class="w" style="--r:-0.0deg;--i:16"><img src="img/words/w-dependable.png" alt="" style="height:25px"></span>
+      <span class="w" style="--r:-2.6deg;--i:17"><img src="img/words/w-gentle.png" alt="" style="height:30px"></span>
+      <span class="w" style="--r:0.1deg;--i:18"><img src="img/words/w-trust.png" alt="" style="height:30px"></span>
+      <span class="w" style="--r:-0.7deg;--i:19"><img src="img/words/w-pleasant.png" alt="" style="height:25px"></span>
+      <span class="w" style="--r:-0.2deg;--i:20"><img src="img/words/w-remorseful.png" alt="" style="height:20px"></span>
+      <span class="w" style="--r:2.4deg;--i:21"><img src="img/words/w-respect.png" alt="" style="height:22px"></span>
+      <span class="w" style="--r:1.7deg;--i:22"><img src="img/words/w-good.png" alt="" style="height:33px"></span>
+      <span class="w" style="--r:-2.1deg;--i:23"><img src="img/words/w-redemption.png" alt="" style="height:27px"></span>
+      <span class="w" style="--r:0.9deg;--i:24"><img src="img/words/w-calm.png" alt="" style="height:36px"></span>
+      <span class="w" style="--r:-3.0deg;--i:25"><img src="img/words/w-genuine.png" alt="" style="height:25px"></span>
+      <span class="w" style="--r:-2.6deg;--i:26"><img src="img/words/w-remorse.png" alt="" style="height:36px"></span>
+      <span class="w" style="--r:-1.5deg;--i:27"><img src="img/words/w-christian.png" alt="" style="height:20px"></span>
+      <span class="w" style="--r:-1.1deg;--i:28"><img src="img/words/w-model.png" alt="" style="height:25px"></span>
+      <span class="w" style="--r:1.7deg;--i:29"><img src="img/words/w-changed.png" alt="" style="height:27px"></span>
+      <span class="w" style="--r:3.1deg;--i:30"><img src="img/words/w-church.png" alt="" style="height:27px"></span>
+      <span class="w" style="--r:-1.8deg;--i:31"><img src="img/words/w-easygoing.png" alt="" style="height:20px"></span>
+      <span class="w" style="--r:1.3deg;--i:32"><img src="img/words/w-decent.png" alt="" style="height:20px"></span>
+      <span class="w" style="--r:-0.6deg;--i:33"><img src="img/words/w-sincere.png" alt="" style="height:20px"></span>
+      <span class="w" style="--r:2.3deg;--i:34"><img src="img/words/w-animals.png" alt="" style="height:33px"></span>
+      <span class="w" style="--r:-0.3deg;--i:35"><img src="img/words/w-reliable.png" alt="" style="height:20px"></span>
+      <span class="w" style="--r:-1.0deg;--i:36"><img src="img/words/w-special.png" alt="" style="height:25px"></span>
+      <span class="w" style="--r:-0.4deg;--i:37"><img src="img/words/w-trusted.png" alt="" style="height:25px"></span>
+      <span class="w" style="--r:0.8deg;--i:38"><img src="img/words/w-courtesy.png" alt="" style="height:22px"></span>
+      <span class="w" style="--r:-2.0deg;--i:39"><img src="img/words/w-kind.png" alt="" style="height:36px"></span>
+      <span class="w" style="--r:2.0deg;--i:40"><img src="img/words/w-quiet.png" alt="" style="height:36px"></span>
+      <span class="w" style="--r:3.1deg;--i:41"><img src="img/words/w-faith.png" alt="" style="height:30px"></span>
+      <span class="w" style="--r:-1.3deg;--i:42"><img src="img/words/w-mercy.png" alt="" style="height:36px"></span>
+      <span class="w" style="--r:-2.5deg;--i:43"><img src="img/words/w-bible.png" alt="" style="height:27px"></span>
+    <p class="wordfield-cap">Every word is cut from one of the letters.</p>
   </div>
 </div></section>
 

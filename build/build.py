@@ -286,7 +286,6 @@ if(window.__R){
 </body></html>
 """
 
-
 def page(slug, title, desc, body):
     links = ''.join(
         '\n    <a href="%s"%s>%s</a>' % (h, ' class="on"' if h == slug else '', t)
@@ -294,7 +293,6 @@ def page(slug, title, desc, body):
     html = HEAD.format(title=title, desc=desc, links=links) + body + FOOT
     open(os.path.join(OUT, slug), 'w', encoding='utf-8').write(html)
     return slug, len(html)
-
 
 # ============================================================== HOME
 HOME = """
@@ -312,7 +310,7 @@ HOME = """
       <a class="btn ghost arrow" href="#ask">Explore the site<span>&darr;</span></a>
     </div>
   </div>
-  <figure>
+  <figure class="whole">
     <img src="img/mark-2026.jpg" alt="Mark Jenkins photographed at Holman Correctional Facility in August 2026" width="1085" height="1450">
     <figcaption>Mark Jenkins at Holman Correctional Facility, August 2026.</figcaption>
   </figure>
@@ -331,24 +329,6 @@ HOME = """
     <div class="stat"><b>2</b><span>jurors voted for life. Alabama sentenced him to death anyway</span></div>
   </div>
 </div></div>
-
-<section class="band" id="ask"><div class="wrap" style="text-align:center">
-  <p class="eyebrow">What Mark is asking</p>
-  <h2 style="max-width:21ch;margin-left:auto;margin-right:auto">Mark will never
-  leave prison. The only question is how he dies there.</h2>
-  <p class="serif-lede" style="max-width:60ch;margin:0 auto 26px;font-style:italic">
-  Under the Alabama Constitution, the Governor has the authority, and the right,
-  to commute a death sentence to life in prison without the
-  possibility of parole.</p>
-  <div class="twocol" style="max-width:920px;margin-left:auto;margin-right:auto">
-    <p>Mark and his legal team are not asking for any possibility of future
-    release. They are asking that the Governor allow Mark the opportunity to die a
-    natural death within the prison walls instead of being executed.</p>
-    <p>This power exists precisely because the judicial process is not infallible.
-    Some critical considerations, including the support of more than sixty Alabama
-    correctional officers, could not be considered by any court.</p>
-  </div>
-</div></section>
 
 <section><div class="wrap">
   <div class="media">
@@ -395,10 +375,28 @@ HOME = """
   </div>
 </div></section>
 
+<section class="band" id="ask"><div class="wrap" style="text-align:center">
+  <p class="eyebrow">What Mark is asking</p>
+  <h2 style="max-width:21ch;margin-left:auto;margin-right:auto">Mark will never
+  leave prison. The only question is how he dies there.</h2>
+  <p class="serif-lede" style="max-width:60ch;margin:0 auto 26px;font-style:italic">
+  Under the Alabama Constitution, the Governor has the authority, and the right,
+  to commute a death sentence to life in prison without the
+  possibility of parole.</p>
+  <div class="twocol" style="max-width:920px;margin-left:auto;margin-right:auto">
+    <p>Mark and his legal team are not asking for any possibility of future
+    release. They are asking that the Governor allow Mark the opportunity to die a
+    natural death within the prison walls instead of being executed.</p>
+    <p>This power exists precisely because the judicial process is not infallible.
+    Some critical considerations, including the support of more than sixty Alabama
+    correctional officers, could not be considered by any court.</p>
+  </div>
+</div></section>
+
 <section><div class="wrap">
   <p class="eyebrow">Why Clemency</p>
-  <h2>Three things a court was never allowed to weigh.</h2>
-  <div class="cards" style="margin-top:34px">
+  <h2>Four things a court was never allowed to weigh.</h2>
+  <div class="cards four" style="margin-top:34px">
     <article class="card">
       <span class="n">One</span>
       <h3>Mark is intellectually disabled</h3>
@@ -409,6 +407,14 @@ HOME = """
     </article>
     <article class="card">
       <span class="n">Two</span>
+      <h3>The jury never heard about his childhood</h3>
+      <p>A forensic psychologist calls Mark&rsquo;s childhood one of the worst cases
+      of abuse she has seen in her career. His trial attorneys told the jury not a
+      single word about it.</p>
+      <a class="textlink" href="why-clemency.html#childhood">What was never told</a>
+    </article>
+    <article class="card">
+      <span class="n">Three</span>
       <h3>Mark&rsquo;s jury was not unanimous</h3>
       <p>Two jurors voted for a life sentence. In nearly every other state Mark
       would have received one. Alabama is one of only two states that allows a
@@ -416,12 +422,12 @@ HOME = """
       <a class="textlink" href="why-clemency.html#jury">What the jury was never told</a>
     </article>
     <article class="card">
-      <span class="n">Three</span>
+      <span class="n">Four</span>
       <h3>Mark is not the man who arrived</h3>
       <p>Mark was twenty-one. He is fifty-eight. The officers who supervised him
       describe someone peaceful, trustworthy and good-natured, who they believe
       would pose no threat to anyone.</p>
-      <a class="textlink" href="mark.html#now">The thirty-five years</a>
+      <a class="textlink" href="why-clemency.html#transformation">The thirty-five years</a>
     </article>
   </div>
   <div class="btnrow"><a class="btn" href="why-clemency.html">The full case for clemency</a></div>
@@ -449,9 +455,6 @@ HOME = """
       <p>Events and actions that will spotlight Mark's case in the months
       ahead.</p>
       <a class="textlink" href="mailto:teammarkjenkins@gmail.com">Sign up</a></article>
-  </div>
-  <div class="btnrow" style="justify-content:center;margin-top:34px">
-    <a class="btn" href="help.html">All the ways to help</a>
   </div>
 </div></section>
 """
@@ -515,14 +518,28 @@ __ACT1__
 
 __ACT2__
 
-  <div class="sectend">
-    <p>He did have one saving grace as a child: his animals. He had a soul-deep love
-    of the family's horses, dogs, and a pig named Eva, and the animals loved him
-    back. Even when he had barely any food, he shared what he had with the family
-    dogs.</p>
-    <figure class="closefig reveal"><img src="img/teen-06.jpg" alt="Mark as a pre-teen, holding a fishing rod">
-      <figcaption>Mark, pre-teen, with a fishing rod.</figcaption></figure>
+  <div class="inset">
+    <p class="k">The record of disability</p>
+    <h3>His disability is not a claim made for this case</h3>
+    <p>It was measured and written down long before any of this mattered to a
+    court, by the schools that held him back and by the neuropsychologist who
+    examined him over two days at Holman. Select any passage to read it.</p>
+    <div class="docgrid" style="margin-top:22px">
+      <button class="zoom" type="button"><img class="doc" src="img/ouaou-a.jpg" alt="Excerpt from Dr. Ouaou's assessment concluding that Mr. Jenkins has an intellectual disability, with a Full-Scale IQ of 74, or 69.8 adjusted for the Flynn Effect"></button>
+      <button class="zoom" type="button"><img class="doc" src="img/ouaou-b.jpg" alt="Table of Mark's WAIS-IV scores, showing a Full-Scale IQ of 74 at the 4th percentile and 69.8 with the Flynn Effect"></button>
+      <button class="zoom" type="button"><img class="doc" src="img/ouaou-c.jpg" alt="Excerpt recording that Mark's executive functioning abilities are severely impaired, at or below the 1st percentile relative to age-matched peers"></button>
+      <button class="zoom" type="button"><img class="doc" src="img/ouaou-d.jpg" alt="Excerpt recording that Mark's seventh-grade achievement scores were at second- and third-grade levels and that he was held back"></button>
+    </div>
+    <p class="small" style="margin:16px 0 0">Forensic neuropsychological
+    assessment of Mark Jenkins, Robert H. Ouaou, Ph.D., May 2023.</p>
+    <p class="boyd">Dr. Ouaou is a clinical and forensic neuropsychologist with more
+    than twenty-five years of experience. He examined Mark at Holman over two days
+    in November 2022 and reviewed the records of his childhood. His conclusion was
+    that Mark has an intellectual disability, that it began before he was eighteen,
+    and that it continues to this day. <a class="textlink"
+    href="why-clemency.html#disability">What that means for clemency</a>.</p>
   </div>
+
 <button class="contread" data-to="#crime"><i></i><span>Continue</span><em>&darr;</em></button>
 </article>
 
@@ -574,7 +591,6 @@ __ACT4__
       tail=MS.A4_BTN,
       head=MS.head('04.', 'Thirty-five years: Atonement')))
 
-
 def main():
     import json
     # four consented portraits for the home page face row
@@ -617,7 +633,6 @@ def main():
     for s, n in built:
         print(f'{s:22} {n:>8,} bytes')
     return faces
-
 
 if __name__ == '__main__':
     print(main())
