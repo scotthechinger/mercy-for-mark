@@ -65,6 +65,15 @@ def name_parts(name):
     return out
 
 
+# Contact details are never published, consent or not. They also hide names:
+# "csummers0829@gmail.com" carries a surname inside a single token, so no
+# \b-delimited name pattern can ever reach it. Strip these first.
+CONTACT = re.compile(
+    r'[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}'          # e-mail
+    r'|\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}'                  # telephone
+    , re.I)
+
+
 def redactor(name):
     """Patterns that must never survive into the page for a non-consenting writer."""
     # Titles are not names. "Pastor", "Sergeant", "Warden" describe the job the
@@ -113,8 +122,8 @@ def build():
         oid = 'L%02d' % n
         consent = bool(l.get('consent_public'))          # all False until they say yes
         rx = redactor(l['writer_name'])
-        red = ((lambda t: CROSS.sub(BLOCK, t)) if consent
-               else (lambda t: CROSS.sub(BLOCK, rx.sub(BLOCK, t))))
+        red = ((lambda t: CROSS.sub(BLOCK, CONTACT.sub(BLOCK, t))) if consent
+               else (lambda t: CROSS.sub(BLOCK, rx.sub(BLOCK, CONTACT.sub(BLOCK, t)))))
 
         key = l['writer_name'].split()[-1]
         im = IMGS.get(key) or IMGS.get(l['id'])
@@ -181,6 +190,11 @@ def build():
         if len(last) >= 5 and last.lower() not in _PLACES:
             if re.search(r'\b%s\b' % re.escape(last), whole, re.I):
                 leaks.append(('CROSS', l['writer_name'], last))
+
+    # ---- no e-mail address or telephone number may survive anywhere
+    for m in re.finditer(r'[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}'
+                         r'|\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}', whole):
+        leaks.append(('CONTACT', '-', m.group(0)))
 
     # ---- and the filenames must not carry it either
     for l, r in zip(DATA, rows):
