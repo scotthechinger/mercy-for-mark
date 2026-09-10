@@ -922,3 +922,22 @@ button.dt[aria-pressed="true"] b,button.dt[aria-pressed="true"] span{color:#EFEB
 .pc-ways .rf-lab{font-family:var(--sans);font-size:10.5px;letter-spacing:.16em;
   text-transform:uppercase;color:var(--ink-3);font-weight:700;margin:0 0 10px;
   display:block}
+
+/* ---------------------------------------------- embedded recording + transcript */
+.vidfig{margin:0}
+.vidfig video{display:block;width:100%;aspect-ratio:16/9;background:#0E0D0A;
+  border:1px solid var(--rule);border-radius:3px}
+.vtx{margin-top:14px;border-top:1px solid var(--rule);padding-top:11px}
+.vtx summary{cursor:pointer;list-style:none;position:relative;padding-right:26px;
+  font-family:var(--sans);font-size:12.5px;font-weight:600;letter-spacing:.02em;
+  color:var(--accent)}
+.vtx summary::-webkit-details-marker{display:none}
+.vtx summary::after{content:'+';position:absolute;right:4px;top:-7px;font-size:20px;
+  font-weight:300}
+.vtx[open] summary::after{content:'\2212'}
+.vtx .tx{margin-top:14px}
+.vtx .tx p{font-family:var(--sans);font-size:14.5px;line-height:1.62;
+  color:var(--ink-2);max-width:none;margin:0 0 .9em}
+.vtx .tx p:last-child{margin-bottom:0}
+.vtx .tx p b,.vtx .tx p strong{color:var(--ink);font-weight:600}
+.vtx .tx p.sd{font-size:13.5px;font-style:italic;color:var(--ink-3)}
