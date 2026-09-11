@@ -6,7 +6,6 @@ from data import GRID, OUTSIDE, DIAGNOSIS, PERIODS, TYPES, SOURCE
 
 E = lambda s: html.escape(s, quote=True)
 
-
 # ---------------------------------------------------------------- the instrument
 def risk_tool():
     """The AAIDD framework as three accordions, with the source docked alongside.
@@ -108,7 +107,6 @@ def risk_tool():
 """ % (doc, types_head, ''.join(accs), ''.join(out),
        ''.join(diag), E(SOURCE), json.dumps(R, ensure_ascii=False))
 
-
 # ---------------------------------------------------------------- why clemency
 def why_clemency():
     return """
@@ -176,7 +174,6 @@ def why_clemency():
   line from Dr. Ouaou's report that supports it.</p></div>
   <p class="small" style="margin-top:16px">Robert H. Ouaou, Ph.D., Forensic Neuropsychological Assessment of Mark Jenkins, May 3, 2023. Evaluation conducted at Holman Correctional Facility, November 8–9, 2022.</p>
   <script>window.__R = {"r1": {"label": "Maternal illness", "where": "Prenatal &middot; Biomedical", "tier": 2, "src": "Donna experienced kidney pain on admission to the hospital, and she was found to have a urinary tract infection due to E.coli at the time of the birth."}, "r2": {"label": "Domestic violence", "where": "Prenatal &middot; Social", "tier": 1, "src": "He stated that his father beat his mother and he (Mr. Jenkins) had to clean up after the violence."}, "r3": {"label": "Parental drug use", "where": "Prenatal &middot; Behavioral", "tier": 1, "src": "His mother, father (i.e., his stepfather), and other family members used and manufactured methamphetamines"}, "r4": {"label": "Prematurity", "where": "Perinatal &middot; Biomedical", "tier": 2, "src": "Mark Jenkins was born 09/13/1967 and noted to be a premature infant who weighed 5 pounds 1 ounce."}, "r5": {"label": "Neonatal disorders", "where": "Perinatal &middot; Biomedical", "tier": 2, "src": "Medical records indicate multiple complications during birth. His mother Donna's membranes ruptured prematurely, and doctors were forced to induce labor approximately two weeks early."}, "r6": {"label": "Parental rejection of caretaking", "where": "Perinatal &middot; Behavioral", "tier": 2, "src": "His mother initially put Mr. Jenkins up for adoption, and Mr. Jenkins was discharged from the hospital to an adoption agency."}, "r7": {"label": "Traumatic brain injury", "where": "Postnatal &middot; Biomedical", "tier": 2, "src": "head injuries to the frontal area of the brain during the developmental period, like the ones Mr. Jenkins suffered, are a critical etiology of significant impairments in behavior and emotion."}, "r8": {"label": "Malnutrition", "where": "Postnatal &middot; Biomedical", "tier": 2, "src": "He stated that the methamphetamine use took away his hunger, which was helpful because he had no money for food."}, "r9": {"label": "Impaired child–caregiver interaction", "where": "Postnatal &middot; Social", "tier": 2, "src": "Financially extorted by his own mother"}, "r10": {"label": "Lack of adequate stimulation", "where": "Postnatal &middot; Social", "tier": 1, "src": "His entire adolescence was marked by instability, neglect, physical violence, and substance abuse."}, "r11": {"label": "Family poverty", "where": "Postnatal &middot; Social", "tier": 2, "src": "At time of crime, living in messy, largely empty bungalow with no electricity and that others found for him"}, "r12": {"label": "Institutionalization", "where": "Postnatal &middot; Social", "tier": 2, "src": "placed in special education when in custody of juvenile justice system"}, "r13": {"label": "Child abuse and neglect", "where": "Postnatal &middot; Behavioral", "tier": 2, "src": "it was noted that his parents physically abused him, he suffered from neglect, he experienced possible auditory hallucinations, and he had a history of suicide attempts by head banging."}, "r14": {"label": "Domestic violence", "where": "Postnatal &middot; Behavioral", "tier": 2, "src": "His father and mother were physically violent toward Mr. Jenkins. His father hit him regularly and knocked him out on multiple occasions."}, "r15": {"label": "Social deprivation", "where": "Postnatal &middot; Behavioral", "tier": 2, "src": "Mr. Jenkins was periodically homeless during childhood and adolescence from the age of 13 to 19"}, "r16": {"label": "Impaired parenting", "where": "Postnatal &middot; Educational", "tier": 2, "src": "Steve Jenkins beat Mr. Jenkins daily with pieces of wood, belt buckles, and other objects around the house."}, "r17": {"label": "Delayed diagnosis", "where": "Postnatal &middot; Educational", "tier": 2, "src": "A 1981 psychological evaluation in San Bernardino County Juvenile Hall found that Mr. Jenkins “appears to be suffering from a definite learning disability.”"}, "r18": {"label": "Inadequate early intervention services", "where": "Postnatal &middot; Educational", "tier": 2, "src": "the evaluator expressed “grave concern” for Mr. Jenkins ’s emotional wellbeing and requested immediate psychotherapeutic intervention as well as long-term treatment."}, "r19": {"label": "Inadequate special education services", "where": "Postnatal &middot; Educational", "tier": 2, "src": "He needed but never received specialized attention for his intellectual deficits."}, "r20": {"label": "Inadequate family support", "where": "Postnatal &middot; Educational", "tier": 2, "src": "Mr. Jenkins also ran away from home to avoid being violated."}, "r21": {"label": "Severe methamphetamine use on a developing brain", "tier": 2, "src": "He reported that he abused methamphetamines every day from approximately age 15 until age 19.", "where": "Named by Dr. Ouaou &middot; outside the framework"}, "r22": {"label": "Posttraumatic stress", "tier": 2, "src": "These etiologies include posttraumatic stress, neglect, abuse, the effects of severe methamphetamine use on a developing brain and traumatic brain injury.", "where": "Named by Dr. Ouaou &middot; outside the framework"}, "d23": {"label": "Full-Scale IQ", "where": "Diagnostic finding", "tier": 2, "src": "Mr. Jenkins’ IQ of 69.8 (after adjusting for the Flynn Effect) is significantly impaired and within the range for intellectual disability."}, "d24": {"label": "Executive function", "where": "Diagnostic finding", "tier": 2, "src": "His severe executive functioning deficits mean that, in a room of 100 randomly selected people his age, Mr. Jenkins’ ability to plan, adapt, adjust, and have insight into his behavior is likely to be more impaired than every other person in the room."}, "d25": {"label": "Adaptive functioning", "where": "Diagnostic finding", "tier": 2, "src": "[V]oluminous records that contain correlative data related to Mr. Jenkins’ birth, childhood, and adolescence and demonstrate significant deficits in all three domains of adaptive functioning"}, "d26": {"label": "Onset", "where": "Diagnostic finding", "tier": 2, "src": "The onset of Mr. Jenkins’ intellectual and adaptive deficits occurred during the developmental period, specifically before the age of eighteen, and continue to this day."}, "d27": {"label": "Effort testing", "where": "Diagnostic finding", "tier": 2, "src": "On multiple tests of effort and motivation (TOMM, Rey 15, CVLT3 Forced Choice, embedded measures), Mr. Jenkins performed within normal limits, well above designated cutoffs."}};</script>
-
 
   <div class="splitmedia tall" style="margin-top:56px">
     <div>
@@ -349,7 +346,6 @@ def why_clemency():
   Evaluation of Mark Jenkins, September 4, 2026.</p>
 </article>
 
-
 <article class="chapter actblock">
   <h2>Only one person can act now.</h2>
   <p>Under the Alabama Constitution, the Governor has the authority, and the right,
@@ -359,7 +355,6 @@ def why_clemency():
   <div class="btnrow">
     <a class="btn" href="officers.html">Read the officers' letters</a>
     <a class="btn ghost" href="help.html">Write to the Governor</a>
-    <a class="btn ghost" href="postcards.html">View the postcard project</a>
   </div>
 </article>
 
@@ -376,7 +371,6 @@ def why_clemency():
   <button class="railbtn" id="railnext">Next <span>&darr;</span></button>
 </div></nav>
 """
-
 
 # ---------------------------------------------------------------- FAQ
 FAQ = [
@@ -482,7 +476,6 @@ FAQ = [
   "do</a>.</p>"),
 ]
 
-
 def faq_page():
     items = ''.join(
         '<details%s><summary>%s</summary><div class="a">%s</div></details>'
@@ -507,7 +500,6 @@ def faq_page():
   </div>
 </div></section>
 """ % items
-
 
 HELP = """
 <section class="hero" style="padding:52px 0 20px"><div class="wrap"
@@ -548,33 +540,9 @@ HELP = """
       <span class="n">Four</span>
       <h3>Bring it to your congregation</h3>
       <p>Let us know if your church or house of worship is interested in hosting
-      an event to spread awareness about Mark's case, or in taking part in
-      the postcard project.</p>
+      an event to spread awareness about Mark's case.</p>
       <a class="textlink" href="mailto:teammarkjenkins@gmail.com">Get in touch</a>
     </article>
-  </div>
-</div></section>
-
-<section class="dark"><div class="wrap">
-  <div class="media">
-    <div>
-      <p class="eyebrow">The postcard project</p>
-      <h2>One card, one question, one governor.</h2>
-      <p>Across Alabama, people of faith are answering a single question in their
-      own handwriting and mailing it to Montgomery: <i>if you were to speak to the
-      Governor, why would you say Mark Jenkins deserves clemency?</i></p>
-      <p>Every card that comes back is photographed and added to a growing wall on
-      this site. If your congregation would like a stack, tell us how many.</p>
-      <div class="btnrow">
-        <a class="btn" href="postcards.html">See the cards</a>
-        <a class="btn ghost" href="mailto:teammarkjenkins@gmail.com">Request cards</a>
-      </div>
-    </div>
-    <div class="placeholder" style="border-color:rgba(255,255,255,.25);
-      background:rgba(255,255,255,.04)">
-      <b style="color:#EFEBE2">Cards are arriving now</b>
-      <span style="color:#8A857A">The wall fills as they come back in the mail.</span>
-    </div>
   </div>
 </div></section>
 

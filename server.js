@@ -53,6 +53,11 @@ app.use((req, res, next) => {
   return res.status(401).type('text/plain').send('Authentication required.');
 });
 
+// The postcard project is held back until there are enough cards to show it.
+// Everything for it still lives in _hold/. Delete this block to bring it back.
+app.use(['/_hold', '/postcards', '/postcards.html'], (req, res) =>
+  res.status(404).type('text/plain').send('Not found.'));
+
 app.use(express.static(path.join(__dirname), {
   extensions: ['html'],
   setHeaders: (res) => res.set('X-Robots-Tag', 'noindex, nofollow, noarchive'),
