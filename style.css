@@ -976,3 +976,41 @@ button.dt[aria-pressed="true"] b,button.dt[aria-pressed="true"] span{color:#EFEB
 @media(prefers-reduced-motion:reduce){
   .wordfield img{animation:none;opacity:.9}
 }
+
+/* the scrapbook's caption, which changes as each photograph lands. It rides in
+   the footer row, set like every other caption on the site, and reserves only
+   the height it needs so the progress bars stay in view. */
+.pin-foot{flex-wrap:wrap;margin-top:14px}
+/* in the scrapbook the caption and the progress bars sit under the paragraph in
+   the left column, clear of the photographs stacked on the right */
+.pin-foot.footleft{max-width:calc(100% - 744px);margin-top:-48px}
+@media(max-width:1240px){.pin-foot.footleft{max-width:calc(100% - 620px)}}
+.pin-foot .colcap,.longform .chapter p.colcap{flex:0 0 100%;order:-1;
+  font-family:var(--sans);font-size:12.5px;line-height:1.45;color:var(--ink-3);
+  margin:0 0 10px;min-height:1.45em;max-width:86ch}
+@media(max-width:900px){.colcap{min-height:2.9em;margin-bottom:8px}}
+
+/* the eleven-minute film, sitting in the pinned media column */
+/* The film sits on the page with nothing around it: no panel, no frame, just
+   the poster frame until someone presses play. .pin-media figure sets
+   pointer-events:none so a photograph never takes a click, and these selectors
+   have to outrank it to give the film its clicks back. */
+.pin-media.bare{background:transparent;border:0}
+.pin-media figure.filmfig{display:flex;align-items:center;justify-content:center;
+  padding:0;border:0;background:transparent;pointer-events:auto}
+.filmwrap{position:relative;width:100%;line-height:0}
+.pin-media figure.filmfig video{width:100%;height:auto;max-height:100%;
+  display:block;background:transparent;border:0;pointer-events:auto}
+
+.playbtn{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:74px;height:74px;border-radius:50%;border:0;cursor:pointer;
+  background:rgba(22,21,15,.55);display:flex;align-items:center;
+  justify-content:center;padding:0;
+  box-shadow:0 6px 26px rgba(22,21,15,.35);
+  transition:background .25s ease,transform .25s ease}
+.playbtn svg{width:30px;height:30px;fill:#fff;margin-left:4px}
+.playbtn:hover,.playbtn:focus-visible{background:var(--accent);
+  transform:translate(-50%,-50%) scale(1.06)}
+.filmfig.playing .playbtn{display:none}
+@media(max-width:900px){.playbtn{width:60px;height:60px}
+  .playbtn svg{width:24px;height:24px}}
