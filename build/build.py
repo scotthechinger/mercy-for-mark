@@ -43,9 +43,10 @@ FOOT = """</main>
 <footer class="foot"><div class="wrap">
   <div>
     <a class="wordmark" href="index.html">Mercy for <s>Mark</s></a>
-    <p>Mark Allen Jenkins has been on Alabama's death row for more than
-    thirty-five years. He will never be released. We are asking Governor Ivey
-    to let him die of natural causes in prison.</p>
+    <p>Mark Jenkins has been on Alabama&rsquo;s death row for more than thirty-five
+    years. He will never be released. We are asking Governor Ivey to commute his
+    sentence to life without any possibility of parole so that he may live out the
+    rest of his natural life in prison.</p>
   </div>
   <div><h4>The case</h4><ul>
     <li><a href="mark.html">Mark's story</a></li>
@@ -55,11 +56,9 @@ FOOT = """</main>
   </ul></div>
   <div><h4>Take action</h4><ul>
     <li><a href="help.html">Ways to help</a></li>
-    <li><a href="mailto:teammarkjenkins@gmail.com">teammarkjenkins@gmail.com</a></li>
-  </ul></div>
+    </ul></div>
   <span class="base">Questions, comments, or ideas on how to help Mark?
-  Email <a href="mailto:teammarkjenkins@gmail.com">teammarkjenkins@gmail.com</a>.
-  &nbsp;&middot;&nbsp; Legal representation by the UC Berkeley Law Death Penalty Clinic.</span>
+  Email <a href="mailto:teammarkjenkins@gmail.com">teammarkjenkins@gmail.com</a>.</span>
 </div></footer>
 <script>
 document.querySelector('.navtoggle').addEventListener('click', function(){
@@ -297,16 +296,13 @@ def page(slug, title, desc, body):
 HOME = """
 <section class="hero full"><div class="wrap">
   <div>
-    <p class="eyebrow">Clemency for Mark Allen Jenkins</p>
-    <h1>The officers who guarded him are asking the Governor to <em class="hl">spare his life</em>.</h1>
-    <p class="lede">More than sixty Alabama correctional officers have written to
-    Governor Ivey on behalf of a man on death row at Holman. They are the people
-    who understand best what a death sentence means. Not one of them believes
-    Mark Jenkins should be executed.</p>
+    <p class="eyebrow">Clemency for Mark Jenkins</p>
+    <h1>The officers who kept Mark Jenkins on death row are asking the Governor to <em class="hl">spare his life</em>.</h1>
+    <p class="lede">More than sixty correctional officers have written to Governor Ivey in support of Mark Jenkins. They know the Governor’s legacy rests on who lives and who dies on her watch, and they are the people who know Mark best. They are calling on the Governor to commute his sentence to life in prison without the possibility of parole.</p>
     <div class="btnrow">
       <a class="btn" href="officers.html">Read the letters</a>
       <a class="btn ghost" href="mark.html">Meet Mark</a>
-      <a class="btn ghost arrow" href="#ask">Explore the site<span>&darr;</span></a>
+      <a class="btn ghost arrow" href="#ask">Learn more<span>&darr;</span></a>
     </div>
   </div>
   <figure class="whole">
@@ -317,15 +313,13 @@ HOME = """
 
 <div class="statband"><div class="wrap">
   <div class="head">
-    <h3>Where the case stands</h3>
-    <p>Every figure here comes from the letters themselves or from the record of
-    Mark's trial.</p>
-  </div>
+    <h3>By the numbers</h3>
+    </div>
   <div class="stats">
-    <div class="stat"><b>60</b><span>correctional officers have written to the Governor asking her to spare him</span></div>
-    <div class="stat"><b>890+</b><span>years of service to the Alabama Department of Corrections among them</span></div>
-    <div class="stat"><b>35</b><span>years Mark has lived on Alabama's death row</span></div>
-    <div class="stat"><b>2</b><span>jurors voted for life. Alabama sentenced him to death anyway</span></div>
+    <div class="stat"><b>Over 60</b><span>Alabama DOC officers and employees have written to the Governor asking her to spare Mark</span></div>
+    <div class="stat"><b>35</b><span>years Mark has lived on Alabama&rsquo;s death row</span></div>
+    <div class="stat"><b>&lt;1st percentile</b><span>Mark&rsquo;s executive functioning scores</span></div>
+    <div class="stat"><b>2</b><span>jurors voted against the death penalty</span></div>
   </div>
 </div></div>
 
@@ -333,19 +327,15 @@ HOME = """
   <div class="media">
     <div>
       <p class="eyebrow">Meet Mark</p>
-      <h2>He is fifty-eight, and he has been on death row since he was twenty-three.</h2>
-      <p style="color:var(--ink-2);max-width:56ch">He has lived at Holman
-      Correctional Facility since 1991. For much of that time he has worked as a
-      hall runner, a job given only to the men the officers trust. His story is
-      told in four parts, in order, and none of them is hidden behind the
-      others.</p>
+      <h2>Mark is fifty-eight, and he has been on death row since he was twenty-three.</h2>
+      <p style="color:var(--ink-2);max-width:56ch">Learn about Mark&mdash;what he experienced as a child, the crime he committed, the work he has done to atone for his actions and become a better man, and who he is today.</p>
       <div class="btnrow"><a class="btn" href="mark.html">Explore Mark's story</a></div>
     </div>
     <div>
       <figure>
         <img class="full" src="img/mark-visit-1998.jpg" alt="A photograph of Mark Jenkins with his brother's family during a prison visit in 1998, inscribed in Mark's handwriting" style="border:1px solid var(--rule)">
         <figcaption>&ldquo;What a wonderful day I had. May 18, 1998. Thank you
-        Bro!&rdquo; A visit from his brother, inscribed in Mark's own hand.</figcaption>
+        Bro!&rdquo; Mark thanks his brother after a visit with his family.</figcaption>
       </figure>
     </div>
   </div>
@@ -355,12 +345,8 @@ HOME = """
   <div class="media">
     <div>
       <p class="eyebrow">The Officers</p>
-      <h2>Nobody has watched Mark Jenkins longer than the officers at Holman.</h2>
-      <p>These correctional officers have known Mark for years and, in some
-      cases, decades. As Mark has spent more than thirty-five years on death row,
-      nobody knows him better. And these officers, the people who understand best
-      what sentencing someone to death means, do not believe he should
-      be executed.</p>
+      <h2>Nobody knows Mark better than the correctional officers at Holman Prison.</h2>
+      <p>These correctional officers have known Mark for years and, in some cases, decades. They know his character and have witnessed his growth. Over sixty of them have come forward to say why they believe he should not be executed.</p>
       <div class="btnrow"><a class="btn" href="officers.html">Explore the archive</a></div>
     </div>
     <div>
@@ -368,14 +354,13 @@ HOME = """
       counts for something, that my word counts for something.&rdquo;</p>
       <p class="pull-attr">Retired correctional officer &middot; 23 years of service</p>
       <div class="faces" style="margin-top:30px">__FACES__</div>
-      <p class="small" style="margin-top:22px;color:#8A857A">Sixty letters.
-      Nine of the writers served on or witnessed executions.</p>
+      <p class="small" style="margin-top:22px;color:#8A857A">Over sixty letters. Nine of the writers facilitated or witnessed executions.</p>
     </div>
   </div>
 </div></section>
 
 <section class="band" id="ask"><div class="wrap" style="text-align:center">
-  <p class="eyebrow">What Mark is asking</p>
+  <p class="eyebrow">What Mark is requesting</p>
   <h2 style="max-width:21ch;margin-left:auto;margin-right:auto">Mark will never
   leave prison. The only question is how he dies there.</h2>
   <p class="serif-lede" style="max-width:60ch;margin:0 auto 26px;font-style:italic">
@@ -383,50 +368,38 @@ HOME = """
   to commute a death sentence to life in prison without the
   possibility of parole.</p>
   <div class="twocol" style="max-width:920px;margin-left:auto;margin-right:auto">
-    <p>Mark and his legal team are not asking for any possibility of future
-    release. They are asking that the Governor allow Mark the opportunity to die a
-    natural death within the prison walls instead of being executed.</p>
-    <p>This power exists precisely because the judicial process is not infallible.
-    Some critical considerations, including the support of more than sixty Alabama
-    correctional officers, could not be considered by any court.</p>
+    <p>Mark and his legal team are not asking for any chance of future release. They are asking that the Governor allow Mark to live the rest of his natural life within prison walls instead of being executed.</p>
+    <p>This power exists because the judicial process is not perfect. When the judicial process does not lead to the right outcome, the clemency power allows the Governor to step in and show mercy.</p>
   </div>
 </div></section>
 
 <section><div class="wrap">
   <p class="eyebrow">Why Clemency</p>
-  <h2>Four things a court was never allowed to weigh.</h2>
+  <h2>Four reasons the Governor should grant Mark clemency</h2>
   <div class="cards four" style="margin-top:34px">
     <article class="card">
       <span class="n">One</span>
-      <h3>Mark is intellectually disabled</h3>
-      <p>The Supreme Court has barred the execution of people with intellectual
-      disability. A neuropsychologist has diagnosed Mark with it. No court has
-      ever given him a chance to present that evidence.</p>
-      <a class="textlink" href="why-clemency.html#disability">The diagnosis and the record</a>
+      <h3>Mark&rsquo;s intellectual disability</h3>
+      <p>The Supreme Court has barred the execution of intellectually disabled people. A neuropsychologist has diagnosed Mark with intellectual disability, but no court has given him a chance to present that evidence.</p>
+      <a class="textlink" href="why-clemency.html#disability">The diagnosis</a>
     </article>
     <article class="card">
       <span class="n">Two</span>
-      <h3>The jury never heard about his childhood</h3>
-      <p>A forensic psychologist calls Mark&rsquo;s childhood one of the worst cases
-      of abuse she has seen in her career. His trial attorneys told the jury not a
-      single word about it.</p>
-      <a class="textlink" href="why-clemency.html#childhood">What was never told</a>
+      <h3>Mark&rsquo;s painful past</h3>
+      <p>A psychologist calls Mark&rsquo;s childhood one of the worst cases of abuse she has seen in her career. The jury never heard a word about it.</p>
+      <a class="textlink" href="why-clemency.html#childhood">The untold story</a>
     </article>
     <article class="card">
       <span class="n">Three</span>
-      <h3>Mark&rsquo;s jury was not unanimous</h3>
-      <p>Two jurors voted for a life sentence. In nearly every other state Mark
-      would have received one. Alabama is one of only two states that allows a
-      death sentence without a unanimous jury.</p>
-      <a class="textlink" href="why-clemency.html#jury">What the jury was never told</a>
+      <h3>Mark&rsquo;s non-unanimous jury</h3>
+      <p>Two jurors voted for a sentence of life in prison without parole. In nearly every other state, Mark would have received that sentence. Alabama is one of only two states that allow a death sentence without a unanimous jury.</p>
+      <a class="textlink" href="why-clemency.html#jury">The jurors who voted for life</a>
     </article>
     <article class="card">
       <span class="n">Four</span>
-      <h3>Mark is not the man who arrived</h3>
-      <p>Mark was twenty-one. He is fifty-eight. The officers who supervised him
-      describe someone peaceful, trustworthy and good-natured, who they believe
-      would pose no threat to anyone.</p>
-      <a class="textlink" href="why-clemency.html#transformation">The thirty-five years</a>
+      <h3>Mark&rsquo;s transformation in prison</h3>
+      <p>Mark was twenty-three when he arrived at Holman Prison. He is now fifty-eight. Correctional officers describe him as peaceful, trustworthy, and good-natured, and deeply religious&mdash;a far cry from the troubled man who arrived decades earlier.</p>
+      <a class="textlink" href="why-clemency.html#transformation">A changed man</a>
     </article>
   </div>
   <div class="btnrow"><a class="btn" href="why-clemency.html">The full case for clemency</a></div>
@@ -435,20 +408,23 @@ HOME = """
 <section class="band"><div class="wrap">
   <div style="text-align:center;max-width:760px;margin:0 auto">
     <p class="eyebrow">Take action</p>
-    <h2>It matters that people know his name.</h2>
-    <p class="lede measure" style="margin:0 auto">Three things you can do, none of
-    them difficult.</p>
+    <h2>It matters that people know Mark&rsquo;s name.</h2>
+    <p class="lede measure" style="margin:0 auto">Four easy ways to help</p>
   </div>
-  <div class="cards" style="margin-top:38px">
-    <article class="card"><span class="n">One</span><h3>Share his story</h3>
-      <p>Most people have never heard that sixty correctional officers asked a
-      governor to spare a man on death row.</p></article>
-    <article class="card"><span class="n">Two</span><h3>Write to Governor Ivey</h3>
-      <p>Tell her you support clemency for Mark, and why it matters to you.</p>
+  <div class="cards four" style="margin-top:38px">
+    <article class="card"><span class="n">One</span><h3>Share Mark&rsquo;s story</h3>
+      <p>Share Mark&rsquo;s story and this website with your friends, family, and
+      networks.</p></article>
+    <article class="card"><span class="n">Two</span><h3>Join our postcard project</h3>
+      <p>Write a postcard to Governor Ivey to tell her why you support clemency
+      for Mark.</p>
       <a class="textlink" href="help.html">How to write</a></article>
-    <article class="card"><span class="n">Three</span><h3>Get updates</h3>
-      <p>Events and actions that will spotlight Mark's case in the months
-      ahead.</p>
+    <article class="card"><span class="n">Three</span><h3>Involve your faith community</h3>
+      <p>Let us know if your faith community wants to host an event to spread the
+      word about Mark&rsquo;s case.</p>
+      <a class="textlink" href="mailto:teammarkjenkins@gmail.com">Let us know</a></article>
+    <article class="card"><span class="n">Four</span><h3>Get email updates</h3>
+      <p>Sign up to get updates and information about how you can help.</p>
       <a class="textlink" href="mailto:teammarkjenkins@gmail.com">Sign up</a></article>
   </div>
 </div></section>
@@ -591,7 +567,10 @@ def main():
     # four consented portraits for the home page face row
     imgs = json.load(open('/home/claude/work/images.json'))
     import glob, os
-    faces = sorted(os.path.basename(f) for f in glob.glob(OUT + '/img/p-L*.jpg'))[:5]
+    # 17 Sept: the home row is now a fixed set of five consented portraits
+    # (clinic's "For homepage" folder), not the first five letter portraits.
+    # Filenames stay neutral because officers.py forbids officer names on the site.
+    faces = ['p-H1.jpg', 'p-H2.jpg', 'p-H3.jpg', 'p-H4.jpg', 'p-H5.jpg']
     face_html = ''.join('<img src="img/%s" alt="">' % f for f in faces)
 
     built = []
