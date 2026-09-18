@@ -53,9 +53,10 @@ app.use((req, res, next) => {
   return res.status(401).type('text/plain').send('Authentication required.');
 });
 
-// The postcard project is held back until there are enough cards to show it.
-// Everything for it still lives in _hold/. Delete this block to bring it back.
-app.use(['/_hold', '/postcards', '/postcards.html'], (req, res) =>
+// The postcard landing page is live. What stays behind the guard is _hold/,
+// which holds the submission wall we built in September and pulled down; it is
+// kept for parts, not served.
+app.use(['/_hold'], (req, res) =>
   res.status(404).type('text/plain').send('Not found.'));
 
 app.use(express.static(path.join(__dirname), {
