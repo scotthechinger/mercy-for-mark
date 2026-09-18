@@ -1078,3 +1078,12 @@ dialog.lightbox .lb-bar button{flex:none}
   dialog.lightbox .lb-bar{flex-direction:column;align-items:flex-start;gap:12px}
   dialog.lightbox .lb-bar button{align-self:stretch;text-align:center;padding:12px 17px}
 }
+
+/* ---- the stacked fallback's own chapter heading ------------------------ */
+/* Below 1000px the pinned blocks are hidden and .pinflow is what a reader
+   gets. The heading lives inside the pinned block, so the fallback carries a
+   copy of it; this is only ever seen on a phone. */
+.pinflow > .flow-head{margin:4px 0 24px}
+@media(max-width:620px){
+  .pinflow > .flow-head{gap:10px;padding-bottom:16px;margin-bottom:20px}
+}
