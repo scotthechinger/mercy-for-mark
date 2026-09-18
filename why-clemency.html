@@ -415,6 +415,9 @@ var zooms = document.querySelectorAll('button.zoom');
 if(zooms.length){
   var lb = document.createElement('dialog');
   lb.className = 'lightbox';
+  /* Without this the dialog focuses the close button when it opens and Safari
+     draws its own blue ring around it. Focus goes to the dialog instead. */
+  lb.tabIndex = -1;
   lb.innerHTML = '<img alt=""><div class="lb-bar"><span></span>' +
     '<button type="button">Close</button></div>';
   document.body.appendChild(lb);
@@ -426,6 +429,7 @@ if(zooms.length){
       var fc = b.parentNode.querySelector('figcaption');
       lbCap.textContent = fc ? fc.textContent : (im.alt || '');
       lb.showModal();
+      lb.focus();
     });
   });
   lb.querySelector('.lb-bar button').addEventListener('click', function(){ lb.close(); });

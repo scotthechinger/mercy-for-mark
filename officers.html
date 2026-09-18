@@ -212,7 +212,7 @@ dialog::backdrop{background:rgba(22,21,15,.62)}
     cursor:pointer;font:inherit">Clear the filters</button></p>
 </div></section>
 
-<dialog id="dl"><div class="dl-h">
+<dialog id="dl" tabindex="-1"><div class="dl-h">
   <div><h3 id="dl-title"></h3><p id="dl-sub"></p></div>
   <button id="dl-x" aria-label="Close">&times;</button>
 </div><div class="dl-b" id="dl-body"></div></dialog>
@@ -300,6 +300,7 @@ function open(r){
         + r.desc.map(d => '<span>' + esc(d) + '</span>').join('') + '</p>' : '')
     + '<h4>The full letter</h4><div class="dl-t">' + esc(r.text) + '</div>';
   dl.showModal();
+  dl.focus();
 }
 document.addEventListener('click', e => {
   const card = e.target.closest('.lc');
@@ -467,6 +468,9 @@ var zooms = document.querySelectorAll('button.zoom');
 if(zooms.length){
   var lb = document.createElement('dialog');
   lb.className = 'lightbox';
+  /* Without this the dialog focuses the close button when it opens and Safari
+     draws its own blue ring around it. Focus goes to the dialog instead. */
+  lb.tabIndex = -1;
   lb.innerHTML = '<img alt=""><div class="lb-bar"><span></span>' +
     '<button type="button">Close</button></div>';
   document.body.appendChild(lb);
@@ -478,6 +482,7 @@ if(zooms.length){
       var fc = b.parentNode.querySelector('figcaption');
       lbCap.textContent = fc ? fc.textContent : (im.alt || '');
       lb.showModal();
+      lb.focus();
     });
   });
   lb.querySelector('.lb-bar button').addEventListener('click', function(){ lb.close(); });

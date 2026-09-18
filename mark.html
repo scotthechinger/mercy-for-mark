@@ -26,8 +26,7 @@
 </div></header>
 <main id="main">
 
-<section class="hero full align-end" id="mhead" style="padding:34px 0 24px"><div class="wrap"
-  style="grid-template-columns:1.06fr .94fr;gap:56px">
+<section class="hero full align-end" id="mhead" style="padding:34px 0 24px"><div class="wrap">
   <div>
     <p class="eyebrow">Mark Jenkins</p>
     <h1>Mark is fifty-eight years old and has been on death row since he was twenty-three.</h1>
@@ -37,7 +36,7 @@
     </div>
   </div>
   <figure class="natural">
-    <img src="img/mark-billy-2024.jpg" alt="Mark Jenkins with his brother's family during a prison visit in 1998, inscribed in Mark's handwriting">
+    <img src="img/mark-billy-2024.jpg" alt="Mark Jenkins during a prison visit in 2024, standing between his brother Billy and Billy's friend">
     <figcaption>Mark with his brother, Billy, and Billy&rsquo;s friend, 2024.</figcaption>
   </figure>
 </div></section>
@@ -155,7 +154,7 @@
   </div></div>
 </section>
 <div class="pinflow"><div class="flow-step"><p>Mark began running away around age eleven to escape the chaos of his parents'
- home.</p><figure><img src="img/teen-05.jpg" alt="" loading="lazy"><figcaption>Mark in the school yearbook.</figcaption></figure></div><div class="flow-step"><p>At times, he lived on the streets and begged for change.</p><figure><img src="img/teen-07.jpg" alt="" loading="lazy"><figcaption>Mark's yearbook portrait.</figcaption></figure></div><div class="flow-step"><p>When Mark turned eighteen, he tried to turn his life around and enlist in the armed forces, but he failed the entrance exam. A couple of years later, a friend asked Mark to help the friend&rsquo;s family move to Alabama, and Mark went with them.</p><figure><img src="img/lateteens.jpg" alt="" loading="lazy"><figcaption>Mark and one of his brothers in their late teens.</figcaption></figure></div><div class="flow-step"><p>In Alabama, Mark tried to build a new life. But employers took advantage of him, and he still suffered from the emotional and physical effects of his parents&rsquo; abuse. He started drinking heavily.</p><figure><img src="img/lateteens.jpg" alt="" loading="lazy"><figcaption>Mark and one of his brothers in their late teens.</figcaption></figure></div></div>
+ home.</p><figure><img src="img/teen-05.jpg" alt="" loading="lazy"><figcaption>Mark in the school yearbook.</figcaption></figure></div><div class="flow-step"><p>At times, he lived on the streets and begged for change.</p><figure><img src="img/teen-07.jpg" alt="" loading="lazy"><figcaption>Mark's yearbook portrait.</figcaption></figure></div><div class="flow-step"><p>When Mark turned eighteen, he tried to turn his life around and enlist in the armed forces, but he failed the entrance exam. A couple of years later, a friend asked Mark to help the friend&rsquo;s family move to Alabama, and Mark went with them.</p><figure><img src="img/teen-06.jpg" alt="" loading="lazy"><figcaption>Mark, pre-teen, with a fishing rod.</figcaption></figure></div><div class="flow-step"><p>In Alabama, Mark tried to build a new life. But employers took advantage of him, and he still suffered from the emotional and physical effects of his parents&rsquo; abuse. He started drinking heavily.</p><figure><img src="img/lateteens.jpg" alt="" loading="lazy"><figcaption>Mark and one of his brothers in their late teens.</figcaption></figure></div></div>
 
 <section class="pinned" id="act3end" data-kind="cards">
   <div class="pin"><div class="pin-in"><div class="pin-centre"><div class="ccard title tall"><i class="drop"></i><p>April 18, 1989</p></div><div class="ccard para"><p>In the early hours of April 18, 1989, Mark had been drinking heavily and drove to a diner where Tammy Hogeland worked. He was just twenty-one years old. She was just twenty-two.</p></div><div class="ccard para"><p>Mark and Tammy knew each other, and Tammy left the diner with Mark. At some point, the two got into an argument. During that argument, Mark strangled Tammy to death.</p></div><div class="ccard para em"><p>Tammy Hogeland was a young woman with a full life ahead of her, and Mark took that life from her and from her loved ones. Nothing here diminishes the horror of Mark&rsquo;s crime, and neither Mark nor his legal team is asking anyone to ignore the terrible pain he has caused.</p></div><div class="ccard para short"><i class="drop"></i><p>In 1991, Mark was convicted of capital murder in St. Clair County and
@@ -381,6 +380,9 @@ var zooms = document.querySelectorAll('button.zoom');
 if(zooms.length){
   var lb = document.createElement('dialog');
   lb.className = 'lightbox';
+  /* Without this the dialog focuses the close button when it opens and Safari
+     draws its own blue ring around it. Focus goes to the dialog instead. */
+  lb.tabIndex = -1;
   lb.innerHTML = '<img alt=""><div class="lb-bar"><span></span>' +
     '<button type="button">Close</button></div>';
   document.body.appendChild(lb);
@@ -392,6 +394,7 @@ if(zooms.length){
       var fc = b.parentNode.querySelector('figcaption');
       lbCap.textContent = fc ? fc.textContent : (im.alt || '');
       lb.showModal();
+      lb.focus();
     });
   });
   lb.querySelector('.lb-bar button').addEventListener('click', function(){ lb.close(); });

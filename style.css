@@ -1059,3 +1059,22 @@ button.dt[aria-pressed="true"] b,button.dt[aria-pressed="true"] span{color:#EFEB
 .longform .chapter .qcard figcaption{margin-top:18px;font-family:var(--sans);
   font-size:12.5px;letter-spacing:.07em;text-transform:uppercase;
   color:var(--ink-3);font-weight:600}
+
+/* ------------------------------------------------ dialogs and focus ----- */
+/* A modal dialog gives focus to something the moment it opens, and Safari
+   paints its own blue ring around whatever that is. On a phone that is a blue
+   box around a close button, which reads as a rendering fault rather than as
+   a focus ring. Every dialog on the site now takes focus itself; the ring is
+   kept for people navigating by keyboard, where it is the point. */
+dialog:focus{outline:none}
+:focus:not(:focus-visible){outline:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+dialog.lightbox :focus-visible{outline-color:#fff}
+
+/* the caption under a zoomed picture can run several lines on a phone; the
+   button must not be squeezed to fit beside it */
+dialog.lightbox .lb-bar button{flex:none}
+@media(max-width:620px){
+  dialog.lightbox .lb-bar{flex-direction:column;align-items:flex-start;gap:12px}
+  dialog.lightbox .lb-bar button{align-self:stretch;text-align:center;padding:12px 17px}
+}
