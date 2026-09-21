@@ -2,6 +2,7 @@
 <html lang="en"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="format-detection" content="telephone=no">
 <title>The Postcard Project | Mercy for Mark</title>
 <meta name="description" content="One card, one question, one Governor. How to take part in the postcard project for Mark Jenkins.">
 <meta name="robots" content="noindex, nofollow">
@@ -336,8 +337,7 @@ var CARDS = [["card-01.jpg","Alabama State Map",900,1194],
 document.getElementById('fronts').innerHTML = CARDS.map(function(c){
   return '<figure class="fr"><div class="pcard">' +
     '<img loading="lazy" width="' + c[2] + '" height="' + c[3] + '" ' +
-    'src="img/pc/' + c[0] + '" alt="Postcard front: ' + c[1] + '"></div>' +
-    '<figcaption>' + c[1] + '</figcaption></figure>';
+    'src="img/pc/' + c[0] + '" alt="Postcard front: ' + c[1] + '"></div></figure>';
 }).join('');
 </script>
 </body></html>

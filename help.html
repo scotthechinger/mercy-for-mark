@@ -2,6 +2,7 @@
 <html lang="en"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="format-detection" content="telephone=no">
 <title>Take Action | Mercy for Mark</title>
 <meta name="description" content="Concrete things you can do to help Mark Jenkins: write, sign up, spread the word.">
 <meta name="robots" content="noindex, nofollow">
@@ -63,7 +64,7 @@
       <span class="n">One</span>
       <h3>Share Mark&rsquo;s story</h3>
       <p>Share Mark&rsquo;s story and this website with your friends, family, and networks.</p>
-      <a class="textlink" href="mark.html">Read Mark&rsquo;s story</a>
+      <a class="textlink" href="mark.html">Mark&rsquo;s story</a>
     </article>
     <article class="card">
       <span class="n">Two</span>
@@ -76,7 +77,16 @@
       <h3>Get email updates</h3>
       <p>Sign up for updates about Mark’s case, including events and actions that
       will spotlight it in the months ahead.</p>
-      <a class="textlink" href="mailto:teammarkjenkins@gmail.com?subject=Sign%20me%20up%20for%20updates%20about%20Mark&body=Please%20add%20me%20to%20the%20list%20for%20updates%20about%20Mark%20Jenkins%E2%80%99s%20case.%0A%0AName%3A%0ACity%20and%20state%3A">Sign up</a>
+      <form class="sub" action="https://docs.google.com/forms/d/e/1FAIpQLSe4hVwL6lYlx7WSRYWtWWX0A0OJPejQLzO4cdljNeP2M6f-tg/formResponse" method="post" target="mfm-sink">
+        <label class="vh" for="su-t">Your email address</label>
+        <div class="sub-row">
+          <input class="sub-in" id="su-t" type="email" name="entry.122001304"
+            placeholder="Email address" autocomplete="email" inputmode="email" required>
+          <button class="sub-go" type="submit">Sign up</button>
+        </div>
+        <input class="sub-hp" type="text" name="mfm_hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <p class="sub-msg" role="status" aria-live="polite"></p>
+      </form>
     </article>
     <article class="card">
       <span class="n">Four</span>
@@ -339,4 +349,6 @@ if(window.__R){
   });
 }
 </script>
+  <iframe name="mfm-sink" id="mfm-sink" class="sub-sink" title="Sign-up target" aria-hidden="true"></iframe>
+<script src="signup.js" defer></script>
 </body></html>
