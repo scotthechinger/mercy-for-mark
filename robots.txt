@@ -1,0 +1,10 @@
+# Mercy for Mark
+# The site is still behind a password for clinic review, so nothing should
+# be crawled yet. AT LAUNCH: delete the two Disallow lines below, and remove
+# the <meta name="robots" content="noindex, nofollow"> line from all seven
+# HTML pages. Both must change together.
+
+User-agent: *
+Disallow: /
+
+Sitemap: https://mercyformark.org/sitemap.xml

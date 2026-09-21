@@ -29,6 +29,18 @@ function same(a, b) {
 }
 
 app.use((req, res, next) => {
+  // Let the certificate authority in, and nobody else.
+  //
+  // When a custom domain is pointed at Render, a TLS certificate has to be
+  // issued for it, and the check for that can arrive as a plain HTTP request
+  // to /.well-known/acme-challenge/. Render appears to answer that at its own
+  // edge rather than passing it here, but if it ever does pass it here, a
+  // blanket 401 would stall the certificate and the domain would sit on a
+  // browser warning with no obvious cause. This exempts that one path and
+  // nothing else: no page, image or PDF lives under it, so an exempt request
+  // can only ever be answered with a challenge file or a 404.
+  if (req.path.startsWith('/.well-known/acme-challenge/')) return next();
+
   // Fail closed. A missing password must never mean an open site.
   if (!USER || !PASS) {
     res.status(503).type('text/plain');
