@@ -442,6 +442,14 @@ figure.pair .ph{aspect-ratio:3/4}
   .cards,.cards.two,.cards.four{grid-template-columns:1fr}
   .stats{grid-template-columns:1fr 1fr}
   .foot .wrap{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .foot .base{grid-column:1/-1}
+}
+@media(max-width:640px){
+  /* one column, so nothing is stranded beside a short list (Camryn) */
+  .foot .wrap{grid-template-columns:minmax(0,1fr);gap:26px}
+  .foot .base{margin-top:26px}
+}
+@media(max-width:900px){
   .navlinks{position:fixed;inset:66px 0 auto 0;background:var(--paper);
     flex-direction:column;align-items:stretch;gap:0;padding:8px 26px 22px;
     border-bottom:1px solid var(--rule);display:none}
@@ -727,6 +735,7 @@ button.dt[aria-pressed="true"] b,button.dt[aria-pressed="true"] span{color:#EFEB
 .pinflow figure.loose{margin:24px 0;max-width:520px}
 .longform .pinflow figcaption{font-size:12.5px;color:var(--ink-3);margin-top:9px}
 .pinflow.centred{text-align:center}
+.longform .pinflow .btnrow{margin-bottom:26px}
 @media(max-width:1000px),(prefers-reduced-motion:reduce){
   .pinned{display:none}
   .pinflow{display:block}
@@ -951,6 +960,7 @@ button.dt[aria-pressed="true"] b,button.dt[aria-pressed="true"] span{color:#EFEB
 /* The homepage portrait is full-length. object-fit:cover with a height cap has
    to crop a tall picture somewhere, and it was cropping his shoes off; show the
    whole frame instead and let the border hug it. */
+.hero.full figure.whole{width:max-content;max-width:100%;margin-inline:auto}
 .hero.full figure.whole img{width:auto;max-width:100%;height:auto;
   max-height:min(74svh,700px);margin:0 auto;object-fit:fill}
 
@@ -1037,7 +1047,7 @@ button.dt[aria-pressed="true"] b,button.dt[aria-pressed="true"] span{color:#EFEB
 
 /* a closing line, centred under everything. Named for its job rather than
    its alignment: mark.html already carries a .centred, on .pinflow */
-.closing-line{max-width:72ch;margin-left:auto;margin-right:auto;text-align:center}
+.closing-line{max-width:72ch;margin-left:auto;margin-right:auto}
 
 @media(max-width:900px){
   .sidebyside{grid-template-columns:1fr;gap:30px}
@@ -1087,3 +1097,30 @@ dialog.lightbox .lb-bar button{flex:none}
 @media(max-width:620px){
   .pinflow > .flow-head{gap:10px;padding-bottom:16px;margin-bottom:20px}
 }
+
+/* ---- the eleven-minute film, its own block above chapter 01 ------------- */
+.filmband{padding:54px 0 10px}
+.filmband .wrap{max-width:1040px}
+.filmband-head{max-width:64ch;margin-bottom:26px}
+.filmband-head h2{margin:2px 0 12px}
+.filmband-head .lede{margin:0;max-width:58ch}
+figure.filmfig.big{margin:0;border:1px solid var(--rule);background:var(--ink);
+  line-height:0}
+figure.filmfig.big video{width:100%;height:auto;display:block}
+@media(max-width:900px){.filmband{padding:34px 0 4px}}
+
+/* the disability records: report cards on one row, report excerpts on the next */
+.inset .docgrid.rows{display:grid;columns:auto;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+.inset .docgrid.rows>*{margin:0}
+@media(max-width:760px){.inset .docgrid.rows{grid-template-columns:1fr}}
+
+/* ---- the officers on camera, above the archive ------------------------- */
+.cofilm{padding:10px 0 4px}
+.cofilm .wrap{max-width:1040px}
+.cofilm-head{max-width:64ch;margin-bottom:24px}
+.cofilm-head h2{margin:2px 0 12px}
+.cofilm-head .lede{margin:0;max-width:60ch}
+.cofilm-fig{margin:0}
+.cofilm-fig video{width:100%;height:auto;display:block;border:1px solid var(--rule);
+  background:var(--ink)}
+@media(max-width:900px){.cofilm{padding:4px 0 0}}

@@ -49,7 +49,9 @@
 .bk-ghost{position:absolute;left:0;top:2%;font-style:italic;color:#C0B9A9;
   font-size:4.6cqw;line-height:1;letter-spacing:.01em}
 .bk-addr{flex:1.12;border-left:1px solid #DED8CB;padding-left:5%;position:relative;
-  display:flex;flex-direction:column;justify-content:flex-end;gap:4%}
+  display:flex;flex-direction:column;justify-content:flex-end;gap:4%;
+  /* the stamp box is 27% wide at .82 aspect: keep that much clear above */
+  padding-top:calc(27% / .82 + 6%)}
 .bk-stamp{position:absolute;top:0;right:0;width:27%;aspect-ratio:.82;
   border:1px dashed #CFC7B6;border-radius:2px}
 .bk-addr b{font-family:var(--sans);font-size:3.1cqw;letter-spacing:.1em;
@@ -250,7 +252,7 @@
     rest of his natural life in prison.</p>
   </div>
   <div><h4>The case</h4><ul>
-    <li><a href="mark.html">Mark's story</a></li>
+    <li><a href="mark.html">Mark&rsquo;s story</a></li>
     <li><a href="officers.html">The officers</a></li>
     <li><a href="why-clemency.html">Why clemency</a></li>
     <li><a href="faq.html">Questions</a></li>
