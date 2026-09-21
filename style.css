@@ -1030,6 +1030,8 @@ button.dt[aria-pressed="true"] b,button.dt[aria-pressed="true"] span{color:#EFEB
 .filmfig.playing .playbtn{display:none}
 @media(max-width:900px){.playbtn{width:60px;height:60px}
   .playbtn svg{width:24px;height:24px}}
+@media(max-width:900px){.cofilm-fig .playbtn{width:7.083%;height:auto}
+  .cofilm-fig .playbtn svg{width:38%;height:38%}}
 
 /* ---- Transformation, re-laid 18 Sept ----------------------------------- */
 /* the citation carries the link to the report, so the caption is two lines */
@@ -1108,12 +1110,12 @@ dialog.lightbox .lb-bar button{flex:none}
 
 /* ---- the eleven-minute film, its own block above chapter 01 ------------- */
 .filmband{padding:54px 0 10px}
-.filmband .wrap{max-width:1040px}
+/* the heading keeps the page’s own left edge, the same one the chapter
+   headings below it start on; the film itself sits outside the wrap and
+   runs the full width of the screen. */
 .filmband-head{max-width:64ch;margin-bottom:26px}
-.filmband-head h2{margin:2px 0 12px}
-.filmband-head .lede{margin:0;max-width:58ch}
-figure.filmfig.big{margin:0;border:1px solid var(--rule);background:var(--ink);
-  line-height:0}
+.filmband-head h2{margin:2px 0 0}
+figure.filmfig.big{margin:0;width:100%;background:var(--ink);line-height:0}
 figure.filmfig.big video{width:100%;height:auto;display:block}
 @media(max-width:900px){.filmband{padding:34px 0 4px}}
 
@@ -1129,6 +1131,18 @@ figure.filmfig.big video{width:100%;height:auto;display:block}
 .cofilm{padding:10px 0 4px}
 .cofilm-fig{margin:0;width:100%}
 .cofilm-fig video{width:100%;height:auto;display:block;background:var(--ink)}
+/* The poster leaves a gap for this button beside its two lines of type.
+   The numbers are that gap measured in the 1920x1080 poster and written as
+   percentages, so the button tracks the type at every screen width. */
+.cofilm-fig .playbtn{left:77.371%;top:46.296%;width:7.083%;height:auto;
+  aspect-ratio:1/1;background:none;box-shadow:none;padding:0}
+/* a solid disc with the triangle cut out of it, so the film shows through
+   the play mark itself. Reads against a dark photograph and a light one. */
+.cofilm-fig .playbtn svg{width:100%;height:100%;margin:0;fill:var(--paper);
+  filter:drop-shadow(0 2px 15px rgba(22,21,15,.5));transition:fill .2s ease}
+.cofilm-fig .playbtn:hover,.cofilm-fig .playbtn:focus-visible{background:none}
+.cofilm-fig .playbtn:hover svg,.cofilm-fig .playbtn:focus-visible svg{fill:#fff}
+.cofilm-fig.playing .playbtn{display:none}
 @media(max-width:900px){.cofilm{padding:4px 0 0}}
 
 /* iOS Safari turns anything that looks like a phone number into a blue link.

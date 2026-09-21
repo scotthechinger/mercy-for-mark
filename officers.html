@@ -199,14 +199,19 @@ dialog::backdrop{background:rgba(22,21,15,.62)}
 
 <section class="cofilm">
   <h2 class="vh">Six of the officers, on camera</h2>
-  <figure class="vidfig cofilm-fig">
-    <video controls playsinline preload="none" poster="img/video/co-film-poster.jpg"
+  <figure class="vidfig cofilm-fig"><div class="filmwrap">
+    <video playsinline preload="none" poster="img/video/co-film-poster.jpg"
       aria-label="Six of the officers who wrote to the Governor, on camera. Captions available.">
       <source src="img/video/co-film.mp4" type="video/mp4">
       <track kind="captions" src="img/video/co-film.vtt" srclang="en" label="English" default>
       <p>Your browser cannot play this recording.</p>
     </video>
-  </figure>
+    <button class="playbtn" type="button" aria-label="Play the film of the officers">
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <path fill-rule="evenodd" d="M50 0a50 50 0 1 0 0.1 0Z M40 27.5 L75 50 L40 72.5 Z"/>
+      </svg>
+    </button>
+  </div></figure>
 </section>
 
 <div class="statband"><div class="wrap">
@@ -606,5 +611,20 @@ if(window.__R){
     });
   });
 }
+</script>
+<script>
+/* The film shows only its poster until someone starts it, so the burned-in
+   title is not covered by a control bar. The button is positioned over the
+   gap the poster leaves for it. */
+document.querySelectorAll('.cofilm-fig').forEach(function(fig){
+  var v = fig.querySelector('video'), btn = fig.querySelector('.playbtn');
+  if(!v || !btn) return;
+  btn.addEventListener('click', function(){
+    fig.classList.add('playing');
+    v.controls = true;
+    v.play();
+    v.focus({preventScroll:true});
+  });
+});
 </script>
 </body></html>
