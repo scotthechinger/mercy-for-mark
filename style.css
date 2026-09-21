@@ -1123,17 +1123,11 @@ figure.filmfig.big video{width:100%;height:auto;display:block}
 @media(max-width:760px){.inset .docgrid.rows{grid-template-columns:1fr}}
 
 /* ---- the officers on camera, above the archive ------------------------- */
-/* The officers’ film. The heading sits in the page’s own measure, on the
-   same left edge as everything else; the film itself sits outside the wrap
-   so it runs the full width of the screen. */
+/* The officers’ film, full width. Its title is burned into the poster, so
+   the only heading in the markup is a hidden one, for screen readers and
+   for the document outline. */
 .cofilm{padding:10px 0 4px}
-.cofilm-head{max-width:64ch;margin-bottom:24px}
-.cofilm-head h2{margin:2px 0 12px}
-.cofilm-head .lede{margin:0;max-width:60ch}
 .cofilm-fig{margin:0;width:100%}
-/* the transcript returns to the page’s measure: a line of text the width
-   of the screen cannot be read. */
-.cofilm-tx{max-width:72ch;margin-top:20px}
 .cofilm-fig video{width:100%;height:auto;display:block;background:var(--ink)}
 @media(max-width:900px){.cofilm{padding:4px 0 0}}
 
