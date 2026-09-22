@@ -47,10 +47,19 @@
    printed margin, so what shows past the edge is blank card and never half a
    sentence. The front gets the tilt. */
 .pcstack{position:relative;margin:0;padding:0 26px 26px 0}
-.pcstack .back{position:absolute;left:26px;top:26px;right:0;bottom:0}
-/* the reverse is a 3:2 card now, so it no longer fills the box the front
-   sits in; drop it so its lower edge lands where it always has */
-.pcstack .back .bk{margin-top:41%}
+/* The back is the card itself, not a board behind it: it takes its height
+   from the 3:2 reverse inside it, and hangs below the front by a share of
+   its own width so the lower edge lands where it always has. */
+.pcstack .back{position:absolute;left:26px;right:0;top:auto;bottom:0;
+  margin-bottom:-31.1%}
+/* Only the lower half of this card is ever seen - the question at the top
+   is behind the front - so the address and the note are set larger here
+   than on the card shown whole further down, and the question smaller. */
+.pcstack .back .bk-prompt{font-size:2.1cqw}
+.pcstack .back .bk-ghost{font-size:2.8cqw}
+.pcstack .back .bk-addr b{font-size:2.8cqw}
+.pcstack .back .bk-addr span{font-size:3.4cqw}
+.pcstack .back .bk-foot{font-size:2.7cqw}
 .pcstack .front{position:relative;transform:rotate(-1.8deg)}
 @media(prefers-reduced-motion:reduce){
   .pcstack{padding:0}
