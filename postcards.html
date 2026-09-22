@@ -105,7 +105,10 @@
 /* ---- the question, set large -------------------------------------------- */
 .askband{background:var(--ink);color:#EFEBE2;padding:68px 0}
 .askband .wrap{max-width:900px;text-align:center}
-.askband .eyebrow{color:var(--accent-lift)}
+/* the standfirst below the question is 16.5px, and as a bare p rule that
+   was also catching the eyebrow above it - every other eyebrow on the site
+   is 11.5px */
+.askband .eyebrow{color:var(--accent-lift);font-size:11.5px}
 .askband q{font-family:var(--serif);quotes:'\201C' '\201D';
   font-size:clamp(25px,3.6vw,41px);line-height:1.34;letter-spacing:-.015em;
   display:block;margin:14px 0 22px;color:#fff}
