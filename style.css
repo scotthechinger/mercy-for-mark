@@ -652,7 +652,10 @@ button.dt[aria-pressed="true"] b,button.dt[aria-pressed="true"] span{color:#EFEB
 .pin-in{width:100%}
 .pin-head{display:flex;align-items:baseline;gap:16px;padding-bottom:20px;
   margin-bottom:26px;border-bottom:1px solid var(--rule)}
-.pin-head.quiet{opacity:.42}
+/* the chapter heading picks up again after the inset block. It used to be
+   faded, which read as a different, greyer heading rather than the same
+   one resumed. */
+.pin-head.quiet{opacity:1}
 .longform .pin-head p.num{font-family:var(--sans);font-size:12px;letter-spacing:.14em;
   font-weight:700;color:var(--accent);margin:0}
 .pin-head h2{font-family:var(--serif);font-weight:400;font-size:clamp(21px,2.5vw,29px);
