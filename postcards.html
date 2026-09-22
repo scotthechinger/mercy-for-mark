@@ -2,11 +2,32 @@
 <html lang="en"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="format-detection" content="telephone=no">
 <title>The Postcard Project | Mercy for Mark</title>
 <meta name="description" content="One card, one question, one Governor. How to take part in the postcard project for Mark Jenkins.">
 <meta name="robots" content="noindex, nofollow">
 <meta property="og:title" content="The Postcard Project | Mercy for Mark">
 <meta property="og:description" content="One card, one question, one Governor. How to take part in the postcard project for Mark Jenkins.">
+<link rel="canonical" href="https://mercyformark.org/postcards.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mercy for Mark">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://mercyformark.org/postcards.html">
+<meta property="og:image" content="https://mercyformark.org/img/og/mercy-for-mark.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Mark Jenkins at Holman Correctional Facility, beside the words: the officers who guarded him are asking the Governor to spare his life.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Postcard Project | Mercy for Mark">
+<meta name="twitter:description" content="One card, one question, one Governor. How to take part in the postcard project for Mark Jenkins.">
+<meta name="twitter:image" content="https://mercyformark.org/img/og/mercy-for-mark.jpg">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#FBF9F5">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -27,6 +48,9 @@
    sentence. The front gets the tilt. */
 .pcstack{position:relative;margin:0;padding:0 26px 26px 0}
 .pcstack .back{position:absolute;left:26px;top:26px;right:0;bottom:0}
+/* the reverse is a 3:2 card now, so it no longer fills the box the front
+   sits in; drop it so its lower edge lands where it always has */
+.pcstack .back .bk{margin-top:41%}
 .pcstack .front{position:relative;transform:rotate(-1.8deg)}
 @media(prefers-reduced-motion:reduce){
   .pcstack{padding:0}
@@ -35,28 +59,33 @@
 }
 
 /* ---- the printed reverse ------------------------------------------------ */
-.bk{aspect-ratio:1084/818;display:flex;flex-direction:column;background:#FDFCF9;
-  padding:6% 6.5% 4.5%;font-family:var(--serif);color:#2A2820;
+/* A real postcard is 6in by 4in. Everything below is set in units of the
+   card's own width so the whole reverse keeps that 3:2 shape at any size,
+   which is what makes it read as a card rather than a panel. */
+.bk{aspect-ratio:3/2;display:flex;flex-direction:column;background:#FDFCF9;
+  padding:3.7% 6.5% 2.8%;font-family:var(--serif);color:#2A2820;
   container-type:inline-size}
-.bk-prompt{font-size:5.1cqw;line-height:1.34;margin:0 0 3.5%;color:#3A372E}
-.bk-cols{display:flex;gap:5%;flex:1;border-top:1px solid #DED8CB;padding-top:3.5%}
-.bk-lines{flex:1.15;display:flex;flex-direction:column;padding-top:2%;
+.bk-prompt{font-size:3.16cqw;line-height:1.34;margin:0 0 2.2%;color:#3A372E}
+.bk-cols{display:flex;gap:5%;flex:1;border-top:1px solid #DED8CB;padding-top:2.2%}
+.bk-lines{flex:1;display:flex;flex-direction:column;padding-top:1.25%;
   position:relative}
 /* the rules share the writing area out between them rather than bunching at
    the top, which is how a real card is ruled */
 .bk-lines i{display:block;flex:1;border-bottom:1px solid #E6E0D3}
 /* the hint sits on the first line, not through it */
 .bk-ghost{position:absolute;left:0;top:2%;font-style:italic;color:#C0B9A9;
-  font-size:4.6cqw;line-height:1;letter-spacing:.01em}
-.bk-addr{flex:1;border-left:1px solid #DED8CB;padding-left:5%;position:relative;
-  display:flex;flex-direction:column;justify-content:flex-end;gap:6%}
-.bk-stamp{position:absolute;top:0;right:0;width:27%;aspect-ratio:.82;
+  font-size:2.85cqw;line-height:1;letter-spacing:.01em}
+.bk-addr{flex:1.12;border-left:1px solid #DED8CB;padding-left:5%;position:relative;
+  display:flex;flex-direction:column;justify-content:flex-end;gap:2.5%;
+  /* the stamp box is 17% wide at .82 aspect: keep that much clear above */
+  padding-top:calc(17% / .82 + 3.7%)}
+.bk-stamp{position:absolute;top:0;right:0;width:17%;aspect-ratio:.82;
   border:1px dashed #CFC7B6;border-radius:2px}
-.bk-addr b{font-family:var(--sans);font-size:3.4cqw;letter-spacing:.1em;
+.bk-addr b{font-family:var(--sans);font-size:1.92cqw;letter-spacing:.1em;
   text-transform:uppercase;color:#8A857A;font-weight:700;display:block}
-.bk-addr span{font-size:4.4cqw;line-height:1.4;display:block;color:#3A372E}
-.bk-foot{font-family:var(--sans);font-size:3cqw;line-height:1.45;color:#8A857A;
-  border-top:1px solid #EDE7DA;margin-top:3.5%;padding-top:2.8%}
+.bk-addr span{font-size:2.3cqw;line-height:1.45;display:block;color:#3A372E}
+.bk-foot{font-family:var(--sans);font-size:1.86cqw;line-height:1.45;color:#8A857A;
+  border-top:1px solid #EDE7DA;margin-top:2.2%;padding-top:1.73%}
 
 /* ---- the question, set large -------------------------------------------- */
 .askband{background:var(--ink);color:#EFEBE2;padding:68px 0}
@@ -70,7 +99,6 @@
 /* ---- front and back, side by side --------------------------------------- */
 .anatomy{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:start;
   margin-top:34px}
-.anatomy figcaption{margin-top:14px}
 .anatomy .lbl{font-family:var(--sans);font-size:11.5px;letter-spacing:.17em;
   text-transform:uppercase;color:var(--accent);font-weight:700;margin:0 0 12px}
 
@@ -80,6 +108,22 @@
 .fr img{width:100%;height:auto}
 .fr figcaption{margin-top:7px;font-size:12px;color:var(--ink-3);
   font-family:var(--sans);line-height:1.4}
+
+/* On a phone the written side is only about 330px across, and type set as a
+   fraction of that is too small to read. There, legibility beats proportion:
+   the card is allowed to grow taller than a real one. */
+@media(max-width:700px){
+  .anatomy .bk{aspect-ratio:auto;padding:6% 6.5% 4.5%}
+  .anatomy .bk-prompt{font-size:5.1cqw;margin-bottom:3.5%}
+  .anatomy .bk-cols{padding-top:3.5%}
+  .anatomy .bk-lines{padding-top:2%}
+  .anatomy .bk-ghost{font-size:4.6cqw}
+  .anatomy .bk-addr{gap:4%;padding-top:calc(27% / .82 + 6%)}
+  .anatomy .bk-stamp{width:27%}
+  .anatomy .bk-addr b{font-size:3.1cqw}
+  .anatomy .bk-addr span{font-size:3.7cqw}
+  .anatomy .bk-foot{font-size:3cqw;margin-top:3.5%;padding-top:2.8%}
+}
 
 @media(max-width:1100px){.fronts{columns:3}}
 @media(max-width:900px){
@@ -111,8 +155,7 @@
     Mark Jenkins&rsquo; life. The postcard project puts that request in front of
     her in the handwriting of the people making it.</p>
     <p style="max-width:48ch;color:var(--ink-2)">We are sending cards now. If you
-    would like to write one&mdash;on your own, with your family, or with your
-    congregation&mdash;we will mail them to you.</p>
+    would like to write one&mdash;on your own, with your family, or with your congregation—we will mail cards to you.</p>
     <p class="btnrow">
       <a class="btn" href="mailto:teammarkjenkins@gmail.com?subject=Postcards%20for%20Mark">Request postcards</a>
       <a class="btn ghost" href="#how">How it works</a>
@@ -131,7 +174,7 @@
           <div class="bk-addr">
             <span class="bk-stamp"></span>
             <b>Mail to</b>
-            <span>Mercy for Mark<br>[Alabama address]</span>
+            <span>Mercy for Mark<br>2 Office Park Circle,<br>Suite 10<br>Birmingham, AL 35223</span>
           </div>
         </div>
         <p class="bk-foot">Cards may be shown publicly, in print or online, as
@@ -149,8 +192,7 @@
   <p class="eyebrow">The question on every card</p>
   <q>If you were to speak to the Governor, why would you say Mark Jenkins
   deserves clemency?</q>
-  <p>That is the whole of it. No form to fill in, no script to follow&mdash;one
-  question, answered in your own words, in your own hand.</p>
+  <p>One question, answered in your own words, in your own hand.</p>
 </div></section>
 
 <section id="how" class="tight"><div class="wrap">
@@ -167,25 +209,22 @@
     <article class="card">
       <span class="n">Two</span>
       <h3>Answer the question</h3>
-      <p>The question is printed on the back. Write what you would say to the
-      Governor. A few lines is enough. Signing your name is optional.</p>
+      <p>Write what you would say to the Governor. A few lines is enough. Signing your name is optional.</p>
     </article>
     <article class="card">
       <span class="n">Three</span>
       <h3>Mail it to us</h3>
-      <p>Our address is printed on the card. We gather the cards together so that
-      Mark&rsquo;s request reaches the Governor as one body of voices rather than
-      one letter at a time.</p>
+      <p>We gather and send the cards together so that Mark’s request reaches the Governor with many voices, rather than one letter at a time.</p>
     </article>
   </div>
 </div></section>
 
 <section class="band"><div class="wrap">
   <p class="eyebrow">The card</p>
-  <h2 style="max-width:26ch">A picture of Alabama on one side, a plea on the other.</h2>
-  <p class="lede" style="max-width:62ch">The fronts are Alabama&rsquo;s own
-  postcards&mdash;the Gulf, the Magic City, the state drawn in big letters. The
-  back is given over to you.</p>
+  <h2 style="max-width:26ch">A picture of Alabama on one side, a plea for mercy on the other.</h2>
+  <p class="lede" style="max-width:62ch">The fronts reflect the great state of
+  Alabama&mdash;the Gulf, the Magic City, the state drawn in big letters. The
+  back is yours.</p>
 
   <div class="anatomy">
     <figure>
@@ -194,8 +233,6 @@
         <img src="img/pc/card-17.jpg" width="900" height="679"
           alt="A vintage &ldquo;Greetings from Alabama&rdquo; large-letter postcard.">
       </div>
-      <figcaption class="small">One of thirty-six fronts. You can ask for a
-      particular card or let us choose.</figcaption>
     </figure>
     <figure>
       <p class="lbl">The written side</p>
@@ -211,15 +248,13 @@
             <div class="bk-addr">
               <span class="bk-stamp"></span>
               <b>Mail to</b>
-              <span>Mercy for Mark<br>[Alabama address]</span>
+              <span>Mercy for Mark<br>2 Office Park Circle,<br>Suite 10<br>Birmingham, AL 35223</span>
             </div>
           </div>
           <p class="bk-foot">Cards may be shown publicly, in print or online, as
           part of Mark&rsquo;s clemency campaign. Signing your name is optional.</p>
         </div>
       </div>
-      <figcaption class="small">The question, room to answer it, and the address
-      already printed. Bring a stamp and a pen.</figcaption>
     </figure>
   </div>
 </div></section>
@@ -227,24 +262,17 @@
 <section><div class="wrap">
   <p class="eyebrow">The fronts</p>
   <h2 style="max-width:24ch">A tapestry of Alabama.</h2>
-  <p class="lede" style="max-width:60ch">The hope is cards from people in every
-  corner of the state&mdash;a tapestry to lay before the Governor, and to show
-  here as they arrive.</p>
-  <p class="small" style="max-width:60ch;margin-top:-6px">Thirty-six fronts to
-  choose from. Tell us which you would like when you write to us, or leave it to
-  us and we will send a mix.</p>
+  <p class="lede" style="max-width:60ch">The hope is to get cards from people across the state—a tapestry to lay before the Governor—and to show them here as they arrive.</p>
   <div class="fronts" id="fronts"></div>
 </div></section>
 
 <section class="dark"><div class="wrap narrow" style="text-align:center">
   <p class="eyebrow">Right now</p>
   <h2>We are accepting postcards today.</h2>
-  <p class="lede" style="margin-bottom:6px">This is not a campaign that has closed
-  or one that has not opened yet. Ask for cards today and we will mail them
+  <p class="lede" style="margin-bottom:6px">Ask for cards today and we will mail them
   to you.</p>
   <p class="lede">If your church, house of worship, school, or group would like to
-  write cards together, we will send you enough for everyone and help you set the
-  time aside.</p>
+  write cards together, we will send you enough for everyone.</p>
   <p class="btnrow" style="justify-content:center">
     <a class="btn" href="mailto:teammarkjenkins@gmail.com?subject=Postcards%20for%20Mark">Request postcards</a>
     <a class="btn ghost" href="help.html">Other ways to help</a>
@@ -254,8 +282,8 @@
 <section class="tight"><div class="wrap narrow" style="text-align:center">
   <h2>Questions about the cards?</h2>
   <p class="lede">Email <a class="textlink"
-  href="mailto:teammarkjenkins@gmail.com">teammarkjenkins@gmail.com</a> and a
-  person will write back.</p>
+  href="mailto:teammarkjenkins@gmail.com">teammarkjenkins@gmail.com</a> and we
+  will write back.</p>
 </div></section>
 </main>
 <footer class="foot"><div class="wrap">
@@ -267,7 +295,7 @@
     rest of his natural life in prison.</p>
   </div>
   <div><h4>The case</h4><ul>
-    <li><a href="mark.html">Mark's story</a></li>
+    <li><a href="mark.html">Mark&rsquo;s story</a></li>
     <li><a href="officers.html">The officers</a></li>
     <li><a href="why-clemency.html">Why clemency</a></li>
     <li><a href="faq.html">Questions</a></li>
@@ -331,8 +359,7 @@ var CARDS = [["card-01.jpg","Alabama State Map",900,1194],
 document.getElementById('fronts').innerHTML = CARDS.map(function(c){
   return '<figure class="fr"><div class="pcard">' +
     '<img loading="lazy" width="' + c[2] + '" height="' + c[3] + '" ' +
-    'src="img/pc/' + c[0] + '" alt="Postcard front: ' + c[1] + '"></div>' +
-    '<figcaption>' + c[1] + '</figcaption></figure>';
+    'src="img/pc/' + c[0] + '" alt="Postcard front: ' + c[1] + '"></div></figure>';
 }).join('');
 </script>
 </body></html>
