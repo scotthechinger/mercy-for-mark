@@ -46,6 +46,10 @@
 /* The back sits squarely behind the front, offset by the width of its own
    printed margin, so what shows past the edge is blank card and never half a
    sentence. The front gets the tilt. */
+/* The reverse hangs below the front by a share of its width, so the space
+   for it has to be reserved in the same units - a fixed gap would be right
+   at one screen size and wrong at every other. */
+.hero .pcstack{margin:0 0 31%}
 .pcstack{position:relative;margin:0;padding:0 26px 26px 0}
 /* The back is the card itself, not a board behind it: it takes its height
    from the 3:2 reverse inside it, and hangs below the front by a share of
@@ -61,10 +65,12 @@
 .pcstack .back .bk-addr span{font-size:3.4cqw}
 .pcstack .back .bk-foot{font-size:2.7cqw}
 .pcstack .front{position:relative;transform:rotate(-1.8deg)}
+/* the two cards lean opposite ways, the way a loose pair on a desk would */
+.pcstack .back{transform:rotate(1.6deg);transform-origin:80% 50%}
 @media(prefers-reduced-motion:reduce){
-  .pcstack{padding:0}
+  .pcstack,.hero .pcstack{padding:0;margin-bottom:0}
   .pcstack .back,.pcstack .front{transform:none}
-  .pcstack .back{position:static;margin-top:18px}
+  .pcstack .back{position:static;margin-top:18px;margin-bottom:0}
 }
 
 /* ---- the printed reverse ------------------------------------------------ */
@@ -156,7 +162,7 @@
 </div></header>
 <main id="main">
 
-<section class="hero" style="padding:52px 0 58px"><div class="wrap">
+<section class="hero"><div class="wrap">
   <div>
     <p class="eyebrow">The postcard project</p>
     <h1>One card, one question, one Governor.</h1>
