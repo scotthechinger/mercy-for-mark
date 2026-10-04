@@ -1,5 +1,7 @@
 # Mercy for Mark
 User-agent: *
 Allow: /
+# hidden while an updated petition is prepared
+Disallow: /docs/mark-jenkins-clemency-petition.pdf
 
 Sitemap: https://mercyformark.org/sitemap.xml
