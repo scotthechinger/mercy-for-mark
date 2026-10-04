@@ -37,12 +37,16 @@
    on it. */
 
 /* ---- the card in the header, which turns over -------------------------- */
-/* Its picture side is landscape, like its written side, so one box holds both
-   and the turn is true. */
-.herocard{margin:0;perspective:1600px}
-.hc-flip{position:relative;display:block;aspect-ratio:1200/919;
+/* Both of its sides are landscape, so one box holds both and the turn is
+   true. Height from padding in percent, as on the wall. */
+.herocard{margin:0;padding:0;border:0;background:none;width:100%;display:block;
+  cursor:pointer;perspective:1600px}
+.herocard:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
+.hc-flip{position:relative;display:block;height:0;padding-top:76.6%;
   transform-style:preserve-3d;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
-.herocard:hover .hc-flip,.herocard:focus-within .hc-flip{transform:rotateY(180deg)}
+.herocard.turned .hc-flip{transform:rotateY(180deg)}
+@media(hover:hover){.herocard:hover .hc-flip{transform:rotateY(180deg)}
+  .herocard.turned:hover .hc-flip{transform:rotateY(360deg)}}
 .herocard .face{position:absolute;inset:0;display:flex;align-items:center;
   justify-content:center;backface-visibility:hidden;
   -webkit-backface-visibility:hidden}
@@ -51,8 +55,6 @@
   display:block;border:1px solid var(--rule);background:#fff;
   box-shadow:0 1px 2px rgba(22,21,15,.06),0 14px 36px rgba(22,21,15,.10)}
 @media(prefers-reduced-motion:reduce){.hc-flip{transition:none}}
-/* nothing hovers on a phone, so the written side is shown there instead */
-@media(hover:none){.hc-flip{transform:rotateY(180deg)}}
 
 /* ---- the question, set large -------------------------------------------- */
 .askband{background:var(--ink);color:#EFEBE2;padding:68px 0}
@@ -79,29 +81,34 @@
 
 
 /* ---- the wall ----------------------------------------------------------- */
-.pc-bar{display:flex;gap:18px;align-items:center;justify-content:space-between;
-  flex-wrap:wrap;margin-top:30px;padding-bottom:14px;
-  border-bottom:1px solid var(--rule)}
+.pc-bar{display:flex;gap:18px;align-items:center;margin-top:30px;
+  padding-bottom:14px;border-bottom:1px solid var(--rule)}
 .pc-views{display:flex;gap:2px;background:var(--paper-2);border:1px solid var(--rule);
   border-radius:3px;padding:3px}
 .pc-views button{font:inherit;font-family:var(--sans);font-size:13.5px;font-weight:600;
   padding:7px 14px;border:0;border-radius:2px;background:none;color:var(--ink-2);
   cursor:pointer}
 .pc-views button.on{background:var(--ink);color:#fff}
-.pc-hint{font-family:var(--sans);font-size:13.5px;color:var(--ink-3);margin:0}
 
-.wall{columns:4;column-gap:22px;margin-top:30px}
-.pc{break-inside:avoid;margin:0 0 26px}
+/* A grid, not CSS columns. Columns miscalculated their height around the
+   turning cards on iOS and let a card spill over the section below. */
+.wall{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:30px 22px;align-items:start;margin-top:30px}
+/* With script, the rows become a 1px ruler and each card is given the number
+   of rows it needs, which closes the gaps a plain grid leaves under the
+   landscape cards. Without script the plain grid above still stands. */
+.wall.packed{grid-auto-rows:1px;row-gap:0}
+.pc{margin:0;min-width:0}
 .pc-btn{display:block;width:100%;padding:0;border:0;background:none;cursor:pointer;
   perspective:1600px}
 .pc-btn:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
 
-/* Seven of the twelve were written with the card turned, so their picture side
-   is portrait and their written side landscape. A turn needs one box for both,
-   so each card gets a box sized between its two shapes and each side sits
-   inside it at its own proportions. */
-.pc-flip{position:relative;display:block;aspect-ratio:var(--r);
+/* The height comes from padding in percent, which every browser agrees on;
+   an aspect-ratio taken from a custom property did not, and collapsed some
+   cards to nothing. The box takes the shape of whichever side is face up. */
+.pc-flip{position:relative;display:block;height:0;padding-top:var(--pf);
   transform-style:preserve-3d;transition:transform .62s cubic-bezier(.2,.7,.2,1)}
+.pc[data-side="back"] .pc-flip{padding-top:var(--pb);transform:rotateY(180deg)}
 .face{position:absolute;inset:0;display:flex;align-items:center;
   justify-content:center;backface-visibility:hidden;-webkit-backface-visibility:hidden}
 .face.b{transform:rotateY(180deg)}
@@ -109,19 +116,14 @@
   border:1px solid var(--rule);background:#fff;
   box-shadow:0 1px 2px rgba(22,21,15,.06),0 8px 22px rgba(22,21,15,.07);
   transition:box-shadow .2s}
-.pc-btn:hover .face img{box-shadow:0 2px 4px rgba(22,21,15,.08),
-  0 14px 34px rgba(22,21,15,.13)}
-/* a card showing its written side starts turned, and turns the rest of the way */
-.pc[data-side="back"] .pc-flip{transform:rotateY(180deg)}
-.pc-btn:hover .pc-flip{transform:rotateY(180deg)}
-.pc[data-side="back"] .pc-btn:hover .pc-flip{transform:rotateY(360deg)}
-@media(prefers-reduced-motion:reduce){.pc-flip{transition:none}}
-/* a finger cannot hover, so on touch the card simply opens */
-@media(hover:none){
-  .pc-btn:hover .pc-flip,.pc[data-side="back"] .pc-btn:hover .pc-flip{
-    transform:none}
-  .pc[data-side="back"] .pc-flip{transform:rotateY(180deg)}
+/* only where there is a pointer to hover with */
+@media(hover:hover){
+  .pc-btn:hover .pc-flip{transform:rotateY(180deg)}
+  .pc[data-side="back"] .pc-btn:hover .pc-flip{transform:rotateY(360deg)}
+  .pc-btn:hover .face img{box-shadow:0 2px 4px rgba(22,21,15,.08),
+    0 14px 34px rgba(22,21,15,.13)}
 }
+@media(prefers-reduced-motion:reduce){.pc-flip{transition:none}}
 
 .pc figcaption{margin-top:11px;font-family:var(--sans);font-size:13.5px;font-weight:600;
   color:var(--ink);line-height:1.35}
@@ -137,14 +139,11 @@
 .dg-pair{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:stretch}
 .dg-pair figure{margin:0;display:flex;flex-direction:column;gap:10px;
   justify-content:flex-end}
-/* one side is often portrait and the other landscape; a shared ceiling keeps
-   the pair from reading as a big card and a small one */
 .dg-pair img{display:block;width:auto;max-width:100%;max-height:66vh;height:auto;
   margin:0 auto;background:#fff;border-radius:2px;
   box-shadow:0 20px 60px rgba(0,0,0,.45)}
-.dg-pair figcaption{text-align:center}
-.dg-pair figcaption{font-family:var(--sans);font-size:11px;letter-spacing:.16em;
-  text-transform:uppercase;color:#8E887C;font-weight:700}
+.dg-pair figcaption{text-align:center;font-family:var(--sans);font-size:11px;
+  letter-spacing:.16em;text-transform:uppercase;color:#8E887C;font-weight:700}
 .dg-bar{display:flex;gap:16px;align-items:center;justify-content:space-between;
   margin-top:18px;color:#EFEBE2;font-family:var(--sans)}
 .dg-who{font-size:15.5px;font-weight:600;margin:0}
@@ -153,11 +152,11 @@
   padding:9px 18px;border-radius:2px;cursor:pointer;
   border:1px solid rgba(255,255,255,.45);background:none;color:#fff;flex:none}
 
-@media(max-width:1100px){.wall{columns:3}}
-@media(max-width:800px){.wall{columns:2}.dg-pair{grid-template-columns:1fr;gap:16px}}
-@media(max-width:520px){.wall{columns:2;column-gap:14px}.pc{margin-bottom:18px}
-  .pc-bar{gap:12px}.pc figcaption{font-size:12.5px}
-  .pc figcaption span{font-size:11.5px}}
+@media(max-width:1100px){.wall{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:800px){.wall{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .dg-pair{grid-template-columns:1fr;gap:16px}}
+@media(max-width:520px){.wall{gap:22px 14px}.wall.packed{row-gap:0}
+  .pc figcaption{font-size:12.5px}.pc figcaption span{font-size:11.5px}}
 
 /* ---- the note for people outside the state ------------------------------ */
 /* It sits under the two buttons in the dark band: quieter than the ask above
@@ -200,16 +199,17 @@
       <a class="btn ghost" href="#how">Write one</a>
     </p>
   </div>
-  <figure class="herocard">
-    <div class="hc-flip">
+  <button class="herocard" type="button" id="herocard"
+    aria-label="Turn the postcard over">
+    <span class="hc-flip">
       <span class="face f"><img src="img/cards/pc-cotton-front.jpg"
         width="1200" height="914"
         alt="The picture side of Amy Cotton&rsquo;s postcard, a vintage &ldquo;Greetings from Alabama&rdquo; design."></span>
       <span class="face b"><img src="img/cards/pc-cotton-back.jpg"
         width="1200" height="923"
         alt="The written side of a postcard from Amy Cotton of Birmingham, asking Governor Ivey to commute Mark Jenkins&rsquo; sentence to life without parole."></span>
-    </div>
-  </figure>
+    </span>
+  </button>
 </div></section>
 
 <section class="askband"><div class="wrap">
@@ -227,15 +227,14 @@
 
   <div class="pc-bar">
     <div class="pc-views" role="group" aria-label="Which side of the cards to show">
-      <button type="button" class="on" data-side="mix">As they came</button>
-      <button type="button" data-side="front">Picture side</button>
-      <button type="button" data-side="back">Written side</button>
+      <button type="button" data-side="front" aria-pressed="false">Picture side</button>
+      <button type="button" data-side="back" aria-pressed="false">Written side</button>
     </div>
-    <p class="pc-hint">Hover a card to turn it over &middot; select one to see both sides</p>
   </div>
 
   <div class="wall" id="wall">
-  <figure class="pc" data-s="dean" data-side="front" style="--r:1.3299">
+  <figure class="pc" data-s="dean" data-side="front"
+    style="--pf:75.167%;--pb:75.250%">
     <button class="pc-btn" type="button"
       aria-label="Postcard from Carol Dean of Hoover — open both sides">
       <span class="pc-flip">
@@ -247,7 +246,8 @@
     </button>
     <figcaption>Carol Dean<span>Hoover</span></figcaption>
   </figure>
-  <figure class="pc" data-s="cotton" data-side="back" style="--r:1.3039">
+  <figure class="pc" data-s="cotton" data-side="back"
+    style="--pf:76.167%;--pb:76.917%">
     <button class="pc-btn" type="button"
       aria-label="Postcard from Amy Cotton of Birmingham — open both sides">
       <span class="pc-flip">
@@ -259,7 +259,8 @@
     </button>
     <figcaption>Amy Cotton<span>Birmingham</span></figcaption>
   </figure>
-  <figure class="pc" data-s="mitchell" data-side="front" style="--r:0.8960">
+  <figure class="pc" data-s="mitchell" data-side="front"
+    style="--pf:131.579%;--pb:76.000%">
     <button class="pc-btn" type="button"
       aria-label="Postcard from Cynthia Mitchell of Hoover — open both sides">
       <span class="pc-flip">
@@ -271,7 +272,8 @@
     </button>
     <figcaption>Cynthia Mitchell<span>Hoover</span></figcaption>
   </figure>
-  <figure class="pc" data-s="hill" data-side="back" style="--r:1.1174">
+  <figure class="pc" data-s="hill" data-side="back"
+    style="--pf:132.743%;--pb:75.583%">
     <button class="pc-btn" type="button"
       aria-label="Postcard from M. Gail Hill of Birmingham — open both sides">
       <span class="pc-flip">
@@ -283,7 +285,8 @@
     </button>
     <figcaption>M. Gail Hill<span>Birmingham</span></figcaption>
   </figure>
-  <figure class="pc" data-s="stritikus" data-side="front" style="--r:0.8883">
+  <figure class="pc" data-s="stritikus" data-side="front"
+    style="--pf:133.038%;--pb:76.250%">
     <button class="pc-btn" type="button"
       aria-label="Postcard from Joy Stritikus of Alabaster — open both sides">
       <span class="pc-flip">
@@ -295,7 +298,8 @@
     </button>
     <figcaption>Joy Stritikus<span>Alabaster</span></figcaption>
   </figure>
-  <figure class="pc" data-s="sato" data-side="back" style="--r:1.3013">
+  <figure class="pc" data-s="sato" data-side="back"
+    style="--pf:75.917%;--pb:77.250%">
     <button class="pc-btn" type="button"
       aria-label="Postcard from Anna Sato of Hoover — open both sides">
       <span class="pc-flip">
@@ -307,7 +311,8 @@
     </button>
     <figcaption>Anna Sato<span>Hoover</span></figcaption>
   </figure>
-  <figure class="pc" data-s="moore" data-side="front" style="--r:0.8905">
+  <figure class="pc" data-s="moore" data-side="front"
+    style="--pf:132.743%;--pb:76.000%">
     <button class="pc-btn" type="button"
       aria-label="Postcard from Rev. Kevin Moore of Hoover — open both sides">
       <span class="pc-flip">
@@ -319,7 +324,8 @@
     </button>
     <figcaption>Rev. Kevin Moore<span>Hoover</span></figcaption>
   </figure>
-  <figure class="pc" data-s="smith" data-side="back" style="--r:1.3275">
+  <figure class="pc" data-s="smith" data-side="back"
+    style="--pf:74.750%;--pb:75.583%">
     <button class="pc-btn" type="button"
       aria-label="Postcard from Sandy Smith of Birmingham — open both sides">
       <span class="pc-flip">
@@ -331,7 +337,8 @@
     </button>
     <figcaption>Sandy Smith<span>Birmingham</span></figcaption>
   </figure>
-  <figure class="pc" data-s="dcrider" data-side="front" style="--r:0.9010">
+  <figure class="pc" data-s="dcrider" data-side="front"
+    style="--pf:131.723%;--pb:74.417%">
     <button class="pc-btn" type="button"
       aria-label="Postcard from Donna Crider of Birmingham — open both sides">
       <span class="pc-flip">
@@ -343,7 +350,8 @@
     </button>
     <figcaption>Donna Crider<span>Birmingham</span></figcaption>
   </figure>
-  <figure class="pc" data-s="humphreys" data-side="back" style="--r:1.3169">
+  <figure class="pc" data-s="humphreys" data-side="back"
+    style="--pf:76.167%;--pb:75.833%">
     <button class="pc-btn" type="button"
       aria-label="Postcard from Caroline Humphreys of Birmingham — open both sides">
       <span class="pc-flip">
@@ -355,7 +363,8 @@
     </button>
     <figcaption>Caroline Humphreys<span>Birmingham</span></figcaption>
   </figure>
-  <figure class="pc" data-s="furr" data-side="front" style="--r:0.8960">
+  <figure class="pc" data-s="furr" data-side="front"
+    style="--pf:132.013%;--pb:75.417%">
     <button class="pc-btn" type="button"
       aria-label="Postcard from Vickie Furr of Hoover — open both sides">
       <span class="pc-flip">
@@ -367,7 +376,8 @@
     </button>
     <figcaption>Vickie Furr<span>Hoover</span></figcaption>
   </figure>
-  <figure class="pc" data-s="jcrider" data-side="front" style="--r:0.9057">
+  <figure class="pc" data-s="jcrider" data-side="front"
+    style="--pf:129.450%;--pb:76.167%">
     <button class="pc-btn" type="button"
       aria-label="Postcard from John Crider of Arab — open both sides">
       <span class="pc-flip">
@@ -482,22 +492,40 @@ document.querySelector('.navtoggle').addEventListener('click', function(){
 
 
 /* The wall. Both sides of every card are in the page; the turn is a 3-D flip
-   and the control decides which side a card rests on. */
-var WALLDATA = {"dean":{"n":"Carol Dean","c":"Hoover","f":[1200,902],"b":[1200,903]},"cotton":{"n":"Amy Cotton","c":"Birmingham","f":[1200,914],"b":[1200,923]},"mitchell":{"n":"Cynthia Mitchell","c":"Hoover","f":[912,1200],"b":[1200,912]},"hill":{"n":"M. Gail Hill","c":"Birmingham","f":[904,1200],"b":[1200,907]},"stritikus":{"n":"Joy Stritikus","c":"Alabaster","f":[902,1200],"b":[1200,915]},"sato":{"n":"Anna Sato","c":"Hoover","f":[1200,911],"b":[1200,927]},"moore":{"n":"Rev. Kevin Moore","c":"Hoover","f":[904,1200],"b":[1200,912]},"smith":{"n":"Sandy Smith","c":"Birmingham","f":[1200,897],"b":[1200,907]},"dcrider":{"n":"Donna Crider","c":"Birmingham","f":[911,1200],"b":[1200,893]},"humphreys":{"n":"Caroline Humphreys","c":"Birmingham","f":[1200,914],"b":[1200,910]},"furr":{"n":"Vickie Furr","c":"Hoover","f":[909,1200],"b":[1200,905]},"jcrider":{"n":"John Crider","c":"Arab","f":[927,1200],"b":[1200,914]}};
-var openSide = {};
-document.querySelectorAll('.pc').forEach(function(fig){
-  openSide[fig.dataset.s] = fig.dataset.side;
-});
+   and the control decides which side every card rests on. */
 document.querySelector('.pc-views').addEventListener('click', function(e){
   var b = e.target.closest('button'); if(!b) return;
   document.querySelectorAll('.pc-views button').forEach(function(x){
-    x.classList.toggle('on', x === b); });
-  var want = b.dataset.side;
+    x.classList.toggle('on', x === b);
+    x.setAttribute('aria-pressed', x === b); });
   document.querySelectorAll('.pc').forEach(function(fig){
-    fig.dataset.side = want === 'mix' ? openSide[fig.dataset.s] : want;
+    fig.dataset.side = b.dataset.side;
   });
+  packWall();
 });
 
+/* close up the ragged bottoms a plain grid leaves */
+var wallEl = document.getElementById('wall');
+function packWall(){
+  var gap = window.innerWidth <= 520 ? 22 : 30;
+  wallEl.classList.add('packed');
+  document.querySelectorAll('.pc').forEach(function(f){
+    f.style.gridRowEnd = '';
+    f.style.gridRowEnd = 'span ' + Math.ceil(f.getBoundingClientRect().height + gap);
+  });
+}
+packWall();
+window.addEventListener('resize', packWall);
+if(document.fonts && document.fonts.ready) document.fonts.ready.then(packWall);
+
+/* nothing hovers on a touch screen, so the card in the header turns on a tap
+   as well, and a click on a desktop holds it turned */
+var hero = document.getElementById('herocard');
+if(hero) hero.addEventListener('click', function(){
+  hero.classList.toggle('turned');
+});
+
+var WALLDATA = {"dean":{"n":"Carol Dean","c":"Hoover","f":[1200,902],"b":[1200,903]},"cotton":{"n":"Amy Cotton","c":"Birmingham","f":[1200,914],"b":[1200,923]},"mitchell":{"n":"Cynthia Mitchell","c":"Hoover","f":[912,1200],"b":[1200,912]},"hill":{"n":"M. Gail Hill","c":"Birmingham","f":[904,1200],"b":[1200,907]},"stritikus":{"n":"Joy Stritikus","c":"Alabaster","f":[902,1200],"b":[1200,915]},"sato":{"n":"Anna Sato","c":"Hoover","f":[1200,911],"b":[1200,927]},"moore":{"n":"Rev. Kevin Moore","c":"Hoover","f":[904,1200],"b":[1200,912]},"smith":{"n":"Sandy Smith","c":"Birmingham","f":[1200,897],"b":[1200,907]},"dcrider":{"n":"Donna Crider","c":"Birmingham","f":[911,1200],"b":[1200,893]},"humphreys":{"n":"Caroline Humphreys","c":"Birmingham","f":[1200,914],"b":[1200,910]},"furr":{"n":"Vickie Furr","c":"Hoover","f":[909,1200],"b":[1200,905]},"jcrider":{"n":"John Crider","c":"Arab","f":[927,1200],"b":[1200,914]}};
 var dl = document.getElementById('pcdl');
 var dgF = document.getElementById('dg-front');
 var dgB = document.getElementById('dg-back');

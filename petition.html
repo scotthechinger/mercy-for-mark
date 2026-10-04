@@ -50,8 +50,11 @@
 .pethead .reportfig img{width:100%;height:auto;border:1px solid var(--rule)}
 @media(max-width:900px){
   .pethead{grid-template-columns:1fr;row-gap:12px}
-  .pethead>.eyebrow,.pethead .phead-text,.pethead .reportfig{grid-column:1}
-  .pethead .reportfig{grid-row:auto;margin-top:30px;max-width:420px}
+  .pethead>.eyebrow,.pethead .phead-text{grid-column:1}
+  /* Stacked, the page shown here would sit directly above the same page shown
+     again under "Read it here", so on a narrow screen it goes and the opening
+     runs straight into the document. */
+  .pethead .reportfig{display:none}
 }
 
 /* ---- the document itself ------------------------------------------------ */
