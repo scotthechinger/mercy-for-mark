@@ -80,6 +80,16 @@
 @media(max-width:520px){.fronts{columns:2;column-gap:14px}.fr{margin-bottom:14px}}
 
 
+/* ---- where the cards go ------------------------------------------------- */
+/* The cards go out blank, so whoever writes one has to copy this address by
+   hand. It is set as text rather than drawn on a picture of a card, so it can
+   be selected, read aloud, and found by a search. */
+.mailto{font-style:normal;font-family:var(--sans);font-size:15.5px;line-height:1.55;
+  color:var(--ink);margin-top:auto;padding-top:18px;
+  border-top:1px solid var(--rule)}
+.mailto b{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--accent);font-weight:700;margin-bottom:9px}
+
 /* ---- the wall ----------------------------------------------------------- */
 .pc-bar{display:flex;gap:18px;align-items:center;margin-top:30px;
   padding-bottom:14px;border-bottom:1px solid var(--rule)}
@@ -416,6 +426,12 @@
       <h3>Mail it to us</h3>
       <p>We gather and send the cards together so that Mark&rsquo;s request reaches the
       Governor with many voices, rather than one letter at a time.</p>
+      <address class="mailto">
+        <b>Address the card to</b>
+        Mercy for Mark<br>
+        2 Office Park Circle, Suite 10<br>
+        Birmingham, AL 35223
+      </address>
     </article>
   </div>
 </div></section>
